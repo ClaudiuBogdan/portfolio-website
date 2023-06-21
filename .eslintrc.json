@@ -1,15 +1,22 @@
 {
-    "root": true,
-    "extends": ["next/core-web-vitals"],
-    "plugins": ["testing-library"],
-    "overrides": [
-      // Only uses Testing Library lint rules in test files
-      {
-        "files": [
-          "**/__tests__/**/*.[jt]s?(x)",
-          "**/?(*.)+(spec|test).[jt]s?(x)"
-        ],
-        "extends": ["plugin:testing-library/react"]
-      }
-    ]
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "standard-with-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "rules": {
+    "@typescript-eslint/dot-notation": "error"
   }
+}
