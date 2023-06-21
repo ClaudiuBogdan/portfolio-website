@@ -21,7 +21,7 @@ jobs:
       #   run: yarn run lint
 
       - name: Check for vulnerabilities
-        run: yarn audit
+        run: yarn audit 
 
       - name: Run tests
         run: yarn run test
