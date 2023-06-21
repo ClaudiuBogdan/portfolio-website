@@ -20,8 +20,8 @@ jobs:
       # - name: Lint code
       #   run: yarn run lint
 
-      # - name: Check for vulnerabilities
-      #   run: yarn audit
+      - name: Check for vulnerabilities
+        run: yarn audit
 
       - name: Run tests
         run: yarn run test
