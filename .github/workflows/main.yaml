@@ -24,7 +24,7 @@ jobs:
         run: yarn audit
 
       - name: Run tests
-        run: yarn run test
+        run: yarn run test:ci
 
       - name: Build app
         run: yarn run build
