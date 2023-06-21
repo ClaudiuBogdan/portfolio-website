@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
 
-describe("Demo test", () => {
-  it("succeeds", () => {});
-});
+describe('Demo test', () => {
+  it('succeeds', () => {
+    console.log('Hello world')
+  })
+})
