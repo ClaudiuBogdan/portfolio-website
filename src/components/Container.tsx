@@ -1,7 +1,17 @@
-import { forwardRef } from 'react'
+import { FC, ForwardedRef, forwardRef } from 'react'
 import clsx from 'clsx'
 
-const OuterContainer = forwardRef(function OuterContainer(
+type ContainerProps = {
+  className?: string
+  children: React.ReactNode
+}
+
+type OuterContainerProps = {
+  className?: string
+  children: React.ReactNode
+}
+
+const OuterContainer: FC<OuterContainerProps> = forwardRef(function OuterContainer(
   { className, children, ...props },
   ref
 ) {
@@ -27,7 +37,7 @@ const InnerContainer = forwardRef(function InnerContainer(
   )
 })
 
-export const Container = forwardRef(function Container(
+export const Container: FC<ContainerProps> = forwardRef(function Container(
   { children, ...props },
   ref
 ) {
