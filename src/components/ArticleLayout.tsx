@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -5,7 +6,23 @@ import { Container } from '@/components/Container'
 import { Prose } from '@/components/Prose'
 import { formatDate } from '@/lib/formatDate'
 
-function ArrowLeftIcon(props) {
+type ArticleLayoutProps = {
+  meta: {
+    title: string
+    description: string
+    date: string
+  }
+  isRssFeed?: boolean
+  previousPathname?: string
+  children: React.ReactNode
+}
+
+type ArrowLeftIconProps = {
+  className?: string
+}
+
+
+export const ArrowLeftIcon: FC<ArrowLeftIconProps> = (props) => {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -18,13 +35,13 @@ function ArrowLeftIcon(props) {
   )
 }
 
-export function ArticleLayout({
+export const ArticleLayout: FC<ArticleLayoutProps> = ({
   children,
   meta,
   isRssFeed = false,
   previousPathname,
-}) {
-  let router = useRouter()
+}) => {
+  const router = useRouter()
 
   if (isRssFeed) {
     return children
@@ -70,3 +87,4 @@ export function ArticleLayout({
     </>
   )
 }
+
