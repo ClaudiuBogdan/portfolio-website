@@ -22,7 +22,7 @@ type TCard = FC<CardProps> & {
 
 type CardTileProps = {
   as?: React.ElementType
-  href: string
+  href?: string
   className?: string
   children: React.ReactNode
 }
