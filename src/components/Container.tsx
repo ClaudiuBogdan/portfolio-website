@@ -9,6 +9,7 @@ type TContainer = ForwardRefExoticComponent<ContainerProps & RefAttributes<HTMLD
 type ContainerProps = {
   className?: string
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
 type OuterContainerProps = {
@@ -47,8 +48,7 @@ const InnerContainer = forwardRef<HTMLDivElement, InnerContainerProps>(function 
   )
 })
 
-//FIXME: This is a hack to get around the fact that I can't figure out how to get the types to work
-export const Container: any = forwardRef<HTMLDivElement, ContainerProps>(function Container(
+export const Container: TContainer = forwardRef<HTMLDivElement, ContainerProps>(function Container(
   { children, ...props },
   ref
 ) {
@@ -57,7 +57,7 @@ export const Container: any = forwardRef<HTMLDivElement, ContainerProps>(functio
       <InnerContainer>{children}</InnerContainer>
     </OuterContainer>
   )
-})
+}) as TContainer
 
 Container.Outer = OuterContainer
 Container.Inner = InnerContainer
