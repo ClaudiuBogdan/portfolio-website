@@ -4,7 +4,7 @@ import { Container } from '@/components/Container'
 type SimpleLayoutProps = {
   title: string
   intro: string
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export const SimpleLayout: FC<SimpleLayoutProps> = ({ title, intro, children }) => {
