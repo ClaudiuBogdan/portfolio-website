@@ -1,5 +1,10 @@
-import { FC, ForwardedRef, forwardRef } from 'react'
+import { ForwardRefExoticComponent, RefAttributes, forwardRef } from 'react'
 import clsx from 'clsx'
+
+type TContainer = ForwardRefExoticComponent<ContainerProps & RefAttributes<HTMLDivElement>> & {
+  Outer: typeof OuterContainer
+  Inner: typeof InnerContainer
+}
 
 type ContainerProps = {
   className?: string
@@ -11,7 +16,12 @@ type OuterContainerProps = {
   children: React.ReactNode
 }
 
-const OuterContainer: FC<OuterContainerProps> = forwardRef(function OuterContainer(
+type InnerContainerProps = {
+  className?: string
+  children: React.ReactNode
+}
+
+const OuterContainer = forwardRef<HTMLDivElement, OuterContainerProps>(function OuterContainer(
   { className, children, ...props },
   ref
 ) {
@@ -22,7 +32,7 @@ const OuterContainer: FC<OuterContainerProps> = forwardRef(function OuterContain
   )
 })
 
-const InnerContainer = forwardRef(function InnerContainer(
+const InnerContainer = forwardRef<HTMLDivElement, InnerContainerProps>(function InnerContainer(
   { className, children, ...props },
   ref
 ) {
@@ -37,7 +47,8 @@ const InnerContainer = forwardRef(function InnerContainer(
   )
 })
 
-export const Container: FC<ContainerProps> = forwardRef(function Container(
+//FIXME: This is a hack to get around the fact that I can't figure out how to get the types to work
+export const Container: any = forwardRef<HTMLDivElement, ContainerProps>(function Container(
   { children, ...props },
   ref
 ) {
