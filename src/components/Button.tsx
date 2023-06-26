@@ -12,7 +12,7 @@ const variantStyles = {
 type ButtonProps = {
   variant?: keyof typeof variantStyles
   className?: string
-  ref: Ref<HTMLAnchorElement>
+  ref?: Ref<HTMLAnchorElement>
 } & JSX.IntrinsicElements['button'] & JSX.IntrinsicElements['a']
 
 // FIXME: this component is using a bad pattern for handling the `href` prop

@@ -25,7 +25,26 @@ import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 
-function MailIcon(props) {
+type TArticle = {
+  title: string
+  description: string
+  slug: string
+  date: string
+  image: string
+}
+
+type ArticleProps = {
+  article: TArticle
+}
+
+type SocialLinkProps = {
+  className?: string
+  href: string
+  children?: React.ReactNode
+  icon: React.ElementType
+}
+
+function MailIcon(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -48,7 +67,7 @@ function MailIcon(props) {
   )
 }
 
-function BriefcaseIcon(props) {
+function BriefcaseIcon(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -71,7 +90,7 @@ function BriefcaseIcon(props) {
   )
 }
 
-function ArrowDownIcon(props) {
+function ArrowDownIcon(props: React.ComponentProps<'svg'>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -84,7 +103,7 @@ function ArrowDownIcon(props) {
   )
 }
 
-function Article({ article }) {
+function Article({ article } : ArticleProps) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
@@ -99,7 +118,7 @@ function Article({ article }) {
   )
 }
 
-function SocialLink({ icon: Icon, ...props }) {
+function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
   return (
     <Link className="group -m-1 p-1" {...props}>
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
@@ -137,7 +156,7 @@ function Newsletter() {
 }
 
 function Resume() {
-  let resume = [
+  const resume = [
     {
       company: 'Planetaria',
       title: 'CEO',
@@ -171,6 +190,22 @@ function Resume() {
     },
   ]
 
+  function getDateLabel(date: string | { label: string; dateTime: number }) {
+    if (typeof date === 'string') {
+      return date
+    }
+
+    return date.label
+  }
+
+  function getDateTime(date: string | { label: string; dateTime: string | number }) {
+    if (typeof date === 'string') {
+      return date
+    }
+
+    return String(date.dateTime)
+  }
+
   return (
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -195,16 +230,16 @@ function Resume() {
               <dt className="sr-only">Date</dt>
               <dd
                 className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
+                aria-label={`${getDateLabel(role.start)} until ${
+                  getDateLabel(role.end)
                 }`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
+                <time dateTime={getDateTime(role.start)}>
+                  {getDateLabel(role.start)}
                 </time>{' '}
                 <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
+                <time dateTime={getDateTime(role.end)}>
+                  {getDateLabel(role.end)}
                 </time>
               </dd>
             </dl>
@@ -220,7 +255,7 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  const rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -246,7 +281,7 @@ function Photos() {
   )
 }
 
-export default function Home({ articles }) {
+export default function Home({ articles }: { articles: TArticle[] }) {
   return (
     <>
       <Head>
