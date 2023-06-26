@@ -1,8 +1,14 @@
 import Link from 'next/link'
 
 import { Container } from '@/components/Container'
+import { FC } from 'react'
 
-function NavLink({ href, children }) {
+type NavLinkProps = {
+  href: string
+  children: React.ReactNode
+}
+
+const NavLink: FC <NavLinkProps> = ({ href, children }) => {
   return (
     <Link
       href={href}
