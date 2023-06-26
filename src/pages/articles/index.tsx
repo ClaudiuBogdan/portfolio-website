@@ -5,7 +5,18 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
 import { getAllArticles } from '@/lib/getAllArticles'
 
-function Article({ article }) {
+type TArticle = {
+  title: string
+  description: string
+  date: string
+  slug: string
+}
+
+type ArticleProps = {
+  article: TArticle
+}
+
+function Article({ article }: ArticleProps) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -34,7 +45,7 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ articles }) {
+export default function ArticlesIndex({ articles }: { articles: TArticle[] }) {
   return (
     <>
       <Head>
@@ -63,6 +74,7 @@ export default function ArticlesIndex({ articles }) {
 export async function getStaticProps() {
   return {
     props: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
     },
   }

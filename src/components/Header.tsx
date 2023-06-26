@@ -60,8 +60,9 @@ type AvatarProps = {
   large?: boolean
   className?: string
   style?: React.CSSProperties
-
 }
+
+type CssPosition = 'absolute' | 'fixed' | 'relative' | 'static' | 'sticky'
 
 const CloseIcon: FC<CloseIconProps> = (props) => {
   return (
@@ -427,24 +428,24 @@ export const Header: FC<HeaderProps> = () => {
             />
             <Container
               className="top-0 order-last -mb-3 pt-3"
-              style={{ position: 'var(--header-position)' }}
+              style={{ position: 'var(--header-position)' as CssPosition }}
             >
               <div
                 className="top-[var(--avatar-top,theme(spacing.3))] w-full"
-                style={{ position: 'var(--header-inner-position)' as any }}
+                style={{ position: 'var(--header-inner-position)' as CssPosition }}
               >
                 <div className="relative">
                   <AvatarContainer
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
-                      opacity: 'var(--avatar-border-opacity, 0)' as any,
-                      transform: 'var(--avatar-border-transform)'as any,
+                      opacity: 'var(--avatar-border-opacity, 0)' as CssPosition,
+                      transform: 'var(--avatar-border-transform)'as CssPosition,
                     }}
                   />
                   <Avatar
                     large
                     className="block h-16 w-16 origin-left"
-                    style={{ transform: 'var(--avatar-image-transform)' as any }}
+                    style={{ transform: 'var(--avatar-image-transform)' as CssPosition }}
                   />
                 </div>
               </div>
@@ -454,11 +455,11 @@ export const Header: FC<HeaderProps> = () => {
         <div
           ref={headerRef}
           className="top-0 z-10 h-16 pt-6"
-          style={{ position: 'var(--header-position)' as any }}
+          style={{ position: 'var(--header-position)' as CssPosition }}
         >
           <Container
             className="top-[var(--header-top,theme(spacing.6))] w-full"
-            style={{ position: 'var(--header-inner-position)' }}
+            style={{ position: 'var(--header-inner-position)' as CssPosition }}
           >
             <div className="relative flex gap-4">
               <div className="flex flex-1">
