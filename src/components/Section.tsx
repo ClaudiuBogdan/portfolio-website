@@ -1,7 +1,14 @@
+import { FC } from 'react'
 import { useId } from 'react'
 
-export function Section({ title, children }) {
-  let id = useId()
+type SectionProps = {
+  title: string
+  children: React.ReactNode
+}
+
+
+export const Section: FC<SectionProps> = ({ title, children }) => {
+  const id = useId()
 
   return (
     <section
