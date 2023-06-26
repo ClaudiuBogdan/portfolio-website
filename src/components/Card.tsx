@@ -15,9 +15,9 @@ type CardLinkProps = LinkProps & {
 type TCard = FC<CardProps> & {
   Link: typeof CardLink
   Title: typeof CardTitle
-  CardDescription: typeof CardDescription
-  CardCta: typeof CardCta
-  CardEyebrow: typeof CardEyebrow
+  Description: typeof CardDescription
+  Cta: typeof CardCta
+  Eyebrow: typeof CardEyebrow
 }
 
 type CardTileProps = {
@@ -42,6 +42,7 @@ type CardEyebrowProps = {
   className?: string
   children: React.ReactNode
   decorate?: boolean
+  dateTime?: string
 }
 
 const ChevronRightIcon: FC<{className?: string}> = (props) => {
@@ -138,7 +139,7 @@ const CardEyebrow: FC<CardEyebrowProps> = ({
 
 Card.Link = CardLink
 Card.Title = CardTitle
-Card.CardDescription = CardDescription
-Card.CardCta = CardCta
-Card.CardEyebrow = CardEyebrow
+Card.Description = CardDescription
+Card.Cta = CardCta
+Card.Eyebrow = CardEyebrow
 
