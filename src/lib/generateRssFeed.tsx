@@ -9,8 +9,8 @@ export async function generateRssFeed() {
   const articles = await getAllArticles()
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string
   const author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'Claudiu C. Bogdan',
+    email: 'contact@devostack.com',
   }
 
   const feed = new Feed({

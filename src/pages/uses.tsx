@@ -40,7 +40,7 @@ export default function Uses() {
   return (
     <>
       <Head>
-        <title>Uses - Spencer Sharp</title>
+        <title>Uses - Claudiu C. Bogdan</title>
         <meta
           name="description"
           content="Software I use, gadgets I love, and other things I recommend."

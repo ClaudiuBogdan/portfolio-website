@@ -50,7 +50,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
   return (
     <>
       <Head>
-        <title>{`${meta.title} - Spencer Sharp`}</title>
+        <title>{`${meta.title} - Claudiu C. Bogdan`}</title>
         <meta name="description" content={meta.description} />
       </Head>
       <Container className="mt-16 lg:mt-32">
