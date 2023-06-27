@@ -244,9 +244,9 @@ const ModeToggle: FC<ModeToggleProps> = () => {
     const isDarkMode = document.documentElement.classList.toggle('dark')
 
     if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
+      localStorage.removeItem("isDarkMode")
     } else {
-      window.localStorage.isDarkMode = isDarkMode
+      localStorage.setItem("isDarkMode", String(isDarkMode))
     }
   }
 
