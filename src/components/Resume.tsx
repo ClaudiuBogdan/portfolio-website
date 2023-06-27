@@ -2,66 +2,50 @@
 import Image from 'next/image'
 
 import { Button } from '@/components/Button'
-
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
-
+import en from '@/locales/en.json'
 import { BriefcaseIcon } from '@/components/Icons/BriefcaseIcon'
 import { ArrowDownIcon } from '@/components/Icons/ArrowDownIcon'
+import { LogoMapper } from './Logos'
+
+type Role = {
+    company: string; 
+    title: string; 
+    start: string;
+    end: string | 'present';
+}
+
+const workExperiences = en.workExperiences
+
+const resume = en.resume
+  
+function getDateLabel(date: string) {
+  if (date === 'present') {
+    return 'Present'
+  }
+
+  return date
+}
+
+function getDateTime(date: string ) {
+  if (date === 'present') {
+    const currentYear = new Date().getFullYear()
+    return String(currentYear)
+  }
+
+  return date
+}
+
+function getRoleUniqueKey(role: Role) {
+    return `${role.company}-${role.title}-${role.start}-${role.end}`
+}
+
+function mapLogo(logo: string) {
+    return LogoMapper[logo]
+}
 
 export function Resume() {
-    const resume = [
-      {
-        company: 'Planetaria',
-        title: 'CEO',
-        logo: logoPlanetaria,
-        start: '2019',
-        end: {
-          label: 'Present',
-          dateTime: new Date().getFullYear(),
-        },
-      },
-      {
-        company: 'Airbnb',
-        title: 'Product Designer',
-        logo: logoAirbnb,
-        start: '2014',
-        end: '2019',
-      },
-      {
-        company: 'Facebook',
-        title: 'iOS Software Engineer',
-        logo: logoFacebook,
-        start: '2011',
-        end: '2014',
-      },
-      {
-        company: 'Starbucks',
-        title: 'Shift Supervisor',
-        logo: logoStarbucks,
-        start: '2008',
-        end: '2011',
-      },
-    ]
-  
-    function getDateLabel(date: string | { label: string; dateTime: number }) {
-      if (typeof date === 'string') {
-        return date
-      }
-  
-      return date.label
-    }
-  
-    function getDateTime(date: string | { label: string; dateTime: string | number }) {
-      if (typeof date === 'string') {
-        return date
-      }
-  
-      return String(date.dateTime)
-    }
-  
+
+
     return (
       <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
         <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -69,10 +53,10 @@ export function Resume() {
           <span className="ml-3">Work</span>
         </h2>
         <ol className="mt-6 space-y-4">
-          {resume.map((role, roleIndex) => (
-            <li key={roleIndex} className="flex gap-4">
+          {workExperiences.map(role => (
+            <li key={getRoleUniqueKey(role)} className="flex gap-4">
               <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+                <Image src={mapLogo(role.logo)} alt={role.logo} className="h-7 w-7" unoptimized />
               </div>
               <dl className="flex flex-auto flex-wrap gap-x-2">
                 <dt className="sr-only">Company</dt>
@@ -102,8 +86,8 @@ export function Resume() {
             </li>
           ))}
         </ol>
-        <Button href="#" variant="secondary" className="group mt-6 w-full">
-          Download CV
+        <Button href={resume.link} variant="secondary" className="group mt-6 w-full">
+          {resume.label}
           <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
         </Button>
       </div>
