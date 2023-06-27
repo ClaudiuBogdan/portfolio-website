@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "home": {
+      "meta": {
+        "title": "Claudiu C. Bogdan - Software designer, founder, and amateur astronaut",
+        "description": "Senior Software Developer, Software Architect, and Team Lead"
+      },
+      "title": "Claudiu C. Bogdan",
+      "aboutMe": "I'm a software designer, founder, and amateur astronaut. I'm currently working at <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> as a Senior Software Developer, Software Architect, and Team Lead. I'm also the founder of <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> and <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a>."
+    }
+  },
+  "socialLinks": [
+    {
+      "name": "LinkedIn",
+      "href": "https://www.linkedin.com/in/claudiuconstantinbogdan/",
+      "ariaLabel": "Connect with me on LinkedIn",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/ClaudiuBogdan",
+      "ariaLabel": "Follow me on GitHub",
+      "icon": "github"
+    },
+    {
+      "name": "Twitter",
+      "href": "https://twitter.com/claudiu_dev",
+      "ariaLabel": "Follow me on Twitter",
+      "icon": "twitter"
+    },
+    {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/claudiu.c.bogdan/",
+      "ariaLabel": "Follow me on Instagram",
+      "icon": "instagram"
+    }
+  ]
+}

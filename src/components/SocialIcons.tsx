@@ -38,3 +38,10 @@ export const LinkedInIcon: FC<IconProps> = (props) => {
     </svg>
   )
 }
+
+export const IconMapper: Record<string, FC<IconProps>> = {
+  twitter: TwitterIcon,
+  github: GitHubIcon,
+  linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
+}
