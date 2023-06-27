@@ -28,7 +28,7 @@ export default function Home({ articles }: { articles: TArticle[] }) {
     <>
       <Head>
         <title>
-          Spencer Sharp - Software designer, founder, and amateur astronaut
+          Claudiu C. Bogdan - Software designer, founder, and amateur astronaut
         </title>
         <meta
           name="description"

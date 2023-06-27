@@ -49,7 +49,7 @@ export default function ArticlesIndex({ articles }: { articles: TArticle[] }) {
   return (
     <>
       <Head>
-        <title>Articles - Spencer Sharp</title>
+        <title>Articles - Claudiu C. Bogdan</title>
         <meta
           name="description"
           content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
