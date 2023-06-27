@@ -34,5 +34,39 @@
       "ariaLabel": "Follow me on Instagram",
       "icon": "instagram"
     }
-  ]
+  ],
+  "workExperiences": [
+    {
+      "company": "Planetaria",
+      "title": "CEO",
+      "logo": "planetaria",
+      "start": "2019",
+      "end": "present"
+    },
+    {
+      "company": "Airbnb",
+      "title": "Product Designer",
+      "logo": "airbnb",
+      "start": "2014",
+      "end": "2019"
+    },
+    {
+      "company": "Facebook",
+      "title": "iOS Software Engineer",
+      "logo": "facebook",
+      "start": "2011",
+      "end": "2014"
+    },
+    {
+      "company": "Starbucks",
+      "title": "Shift Supervisor",
+      "logo": "starbucks",
+      "start": "2008",
+      "end": "2011"
+    }
+  ],
+  "resume": {
+    "link": "/resume.pdf",
+    "label": "Download CV"
+  }
 }
