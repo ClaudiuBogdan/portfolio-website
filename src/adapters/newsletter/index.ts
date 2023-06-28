@@ -1,3 +1,5 @@
+import { addEmailToNewsletterList } from "./mailchimp"
+
 export const subscribeEmailToNewsletter = async (email: string) => {
-    console.log(`Subscribing ${email} to newsletter...`);
+    await addEmailToNewsletterList(email)
 }

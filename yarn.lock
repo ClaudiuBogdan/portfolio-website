@@ -1008,6 +1008,11 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
+"@types/mailchimp__mailchimp_marketing@^3.0.9":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@types/mailchimp__mailchimp_marketing/-/mailchimp__mailchimp_marketing-3.0.9.tgz#949b0b83d376879a56e2f75a3d72dca9c9724eff"
+  integrity sha512-LPWp4PjufVycpNNO2oQoGNcnj9N6cqAWXmBYeEcwslho9icDjetLyChqTgK2LevdUxE4eSQDDuEys++gkm+K2A==
+
 "@types/mdast@^3.0.0":
   version "3.0.11"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.11.tgz#dc130f7e7d9306124286f6d6cee40cf4d14a3dc0"
