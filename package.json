@@ -16,6 +16,7 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.3.0",
@@ -34,7 +35,8 @@
     "postcss-focus-visible": "^8.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "swr": "^2.2.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.1",
