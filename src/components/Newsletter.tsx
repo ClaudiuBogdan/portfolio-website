@@ -6,8 +6,6 @@ import { useSubscribeToNewsletter } from "@/adapters/api";
 export function Newsletter() {
 
   const {subscribe, loading, error, data} = useSubscribeToNewsletter();
-
-  console.log('loading', loading, data, error);
   
   const handleSubmit =  (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
