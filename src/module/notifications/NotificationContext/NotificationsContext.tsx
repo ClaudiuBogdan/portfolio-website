@@ -36,11 +36,11 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
     [setNotifications]
   );
 
-  const handleNotificationClose = (notificationId: string) => {
+  const handleNotificationClose = useCallback((notificationId: string) => {
     setNotifications((notifications) =>
       notifications.filter((notification) => notification.id !== notificationId)
     );
-  };
+  }, [setNotifications]);
 
   return (
     <NotificationContext.Provider value={{ addNotification }}>
@@ -49,7 +49,7 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({
         <Notification
           key={notification.id}
             notification={notification}
-          onClose={() => handleNotificationClose(notification.id)}
+          onClose={handleNotificationClose}
         />
       ))}
     </NotificationContext.Provider>
