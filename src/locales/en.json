@@ -9,6 +9,22 @@
       "aboutMe": "I'm a software designer, founder, and amateur astronaut. I'm currently working at <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> as a Senior Software Developer, Software Architect, and Team Lead. I'm also the founder of <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> and <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a>."
     }
   },
+  "components": {
+    "newsletter": {
+      "title": "Stay up to date",
+      "description": "Get notified when I publish something new, and unsubscribe at any time.",
+      "cta": "Join",
+      "success": "Thanks for subscribing!",
+      "successNotification": {
+        "title": "Thanks for subscribing!",
+        "description": "You'll receive an email when I publish something new."
+      },
+      "errorNotification": {
+        "title": "Something went wrong",
+        "description": "Please try again."
+      }
+    }
+  },
   "socialLinks": [
     {
       "name": "LinkedIn",

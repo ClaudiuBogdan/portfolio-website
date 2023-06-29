@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "./Button";
 import { MailIcon } from "./Icons/MailIcon";
 import { useSubscribeToNewsletter } from "@/adapters/api";
+import { useNotification } from "@/module/notifications";
 
 export function Newsletter() {
 
   const {subscribe, loading, error, data} = useSubscribeToNewsletter();
+  const { addNotification } = useNotification();
+  const addNotificationRef = useRef(addNotification); // to avoid triggering useEffect on addNotification change
+  addNotificationRef.current = addNotification;
   
   const handleSubmit =  (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,15 +21,21 @@ export function Newsletter() {
 
   useEffect(() => {
     if (error) {
-      // TODO: show error
-      alert(error);
+      addNotificationRef.current({
+        message: "Something went wrong. Please try again.",
+        type: "error",
+        autoClose: true,
+      });
     }
   }, [error]);
 
   useEffect(() => {
     if (data) {
-      // TODO: show success
-      alert('success');
+      addNotificationRef.current({
+        message: "Thanks for subscribing!",
+        type: "success",
+        autoClose: true,
+      });
     }
   }, [data]);
 
