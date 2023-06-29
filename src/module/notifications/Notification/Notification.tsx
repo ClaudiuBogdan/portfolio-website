@@ -8,22 +8,23 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 type NotificationProps = {
   notification: NotificationData
-  onClose: () => void;
+  onClose: (notificationId: string) => void;
 };
 
 /**
  * The component displayed as a notification using a portal
  */
 export const Notification: FC<NotificationProps> = ({ notification, onClose }) => {
+  const notificationId = notification.id;
   const [mounted, setMounted] = useState(false);
-  const show = useNotificationLifecycle(onClose, mounted, notification.hide);
+  const show = useNotificationLifecycle(notificationId, onClose, mounted, notification.hide);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const handleCloseClick = () => {
-    onClose();
+    onClose(notificationId);
   };
 
   if (!mounted) return null;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 export const useNotificationLifecycle = (
-  onClose: () => void,
+  notificationId: string,
+  onClose: (notificationId: string) => void,
   mounted: boolean,
   hide?: boolean
 ) => {
@@ -18,11 +19,11 @@ export const useNotificationLifecycle = (
     if (hide) {
       setShow(false);
       const timeout = setTimeout(() => {
-        onClose();
+        onClose(notificationId);
       }, animationDuration);
       return () => clearTimeout(timeout);
     }
-  }, [hide, onClose]);
+  }, [notificationId, hide, onClose]);
 
   return show;
 };
