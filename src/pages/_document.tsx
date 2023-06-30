@@ -1,5 +1,8 @@
+import { clientConfig } from "@/modules/config/client"
 import { Head, Html, Main, NextScript } from "next/document"
 import Script from "next/script"
+
+const baseUrl = clientConfig.baseUrl
 
 export default function Document() {
   return (
@@ -8,12 +11,12 @@ export default function Document() {
         <link
           rel="alternate"
           type="application/rss+xml"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
+          href={`${baseUrl}/rss/feed.xml`}
         />
         <link
           rel="alternate"
           type="application/feed+json"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
+          href={`${baseUrl}/rss/feed.json`}
         />
 
         <Script

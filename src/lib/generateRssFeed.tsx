@@ -4,12 +4,13 @@ import { mkdir, writeFile } from "fs/promises"
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider"
 
 import { getAllArticles } from "./getAllArticles"
+import { clientConfig } from "@/modules/config/client"
 
 export async function generateRssFeed() {
   const articles = await getAllArticles()
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string
+  const siteUrl = clientConfig.baseUrl
   const author = {
-    name: "Claudiu C. Bogdan",
+    name: "Claudiu C. Bogdan", // TODO: get from en locales
     email: "contact@devostack.com",
   }
 

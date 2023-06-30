@@ -9,6 +9,7 @@ import { Article } from "@/components/Article"
 import { Newsletter } from "@/components/Newsletter"
 import { Resume } from "@/components/Resume"
 import en from "@/locales/en.json"
+import { clientConfig } from "@/modules/config/client"
 
 type TArticle = {
   title: string
@@ -66,7 +67,7 @@ export default function Home({ articles }: { articles: TArticle[] }) {
 }
 
 export async function getStaticProps() {
-  if (process.env.NODE_ENV === "production") {
+  if (clientConfig.env === "production") {
     await generateRssFeed()
   }
 
