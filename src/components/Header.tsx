@@ -1,12 +1,12 @@
-import { FC, Fragment, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { Popover, Transition } from '@headlessui/react'
-import clsx from 'clsx'
+import { FC, Fragment, useEffect, useRef } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { Popover, Transition } from "@headlessui/react"
+import clsx from "clsx"
 
-import { Container } from '@/components/Container'
-import avatarImage from '@/images/avatar.jpg'
+import { Container } from "@/components/Container"
+import avatarImage from "@/images/avatar.jpg"
 
 // Write the missing prop types
 type CloseIconProps = {
@@ -62,7 +62,7 @@ type AvatarProps = {
   style?: React.CSSProperties
 }
 
-type CssPosition = 'absolute' | 'fixed' | 'relative' | 'static' | 'sticky'
+type CssPosition = "absolute" | "fixed" | "relative" | "static" | "sticky"
 
 const CloseIcon: FC<CloseIconProps> = (props) => {
   return (
@@ -112,7 +112,7 @@ const SunIcon: FC<SunIconProps> = (props) => {
   )
 }
 
-const MoonIcon: FC<MoonIconProps> = (props) =>{
+const MoonIcon: FC<MoonIconProps> = (props) => {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -199,10 +199,10 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => {
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          "relative block px-3 py-2 transition",
           isActive
-            ? 'text-teal-500 dark:text-teal-400'
-            : 'hover:text-teal-500 dark:hover:text-teal-400'
+            ? "text-teal-500 dark:text-teal-400"
+            : "hover:text-teal-500 dark:hover:text-teal-400"
         )}
       >
         {children}
@@ -230,18 +230,18 @@ const DesktopNavigation: FC<DesktopNavigationProps> = (props) => {
 
 const ModeToggle: FC<ModeToggleProps> = () => {
   const disableTransitionsTemporarily = () => {
-    document.documentElement.classList.add('[&_*]:!transition-none')
+    document.documentElement.classList.add("[&_*]:!transition-none")
     window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
+      document.documentElement.classList.remove("[&_*]:!transition-none")
     }, 0)
   }
 
   const toggleMode = () => {
     disableTransitionsTemporarily()
 
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
     const isSystemDarkMode = darkModeMediaQuery.matches
-    const isDarkMode = document.documentElement.classList.toggle('dark')
+    const isDarkMode = document.documentElement.classList.toggle("dark")
 
     if (isDarkMode === isSystemDarkMode) {
       localStorage.removeItem("isDarkMode")
@@ -274,7 +274,7 @@ const AvatarContainer: FC<AvatarContainerProps> = ({ className, ...props }) => {
     <div
       className={clsx(
         className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
+        "h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10"
       )}
       {...props}
     />
@@ -286,16 +286,16 @@ const Avatar: FC<AvatarProps> = ({ large = false, className, ...props }) => {
     <Link
       href="/"
       aria-label="Home"
-      className={clsx(className, 'pointer-events-auto')}
+      className={clsx(className, "pointer-events-auto")}
       {...props}
     >
       <Image
         src={avatarImage}
         alt=""
-        sizes={large ? '4rem' : '2.25rem'}
+        sizes={large ? "4rem" : "2.25rem"}
         className={clsx(
-          'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
-          large ? 'h-16 w-16' : 'h-9 w-9'
+          "rounded-full bg-zinc-100 object-cover dark:bg-zinc-800",
+          large ? "h-16 w-16" : "h-9 w-9"
         )}
         priority
       />
@@ -304,7 +304,7 @@ const Avatar: FC<AvatarProps> = ({ large = false, className, ...props }) => {
 }
 
 export const Header: FC<HeaderProps> = () => {
-  const isHomePage = useRouter().pathname === '/'
+  const isHomePage = useRouter().pathname === "/"
 
   const headerRef = useRef<HTMLDivElement>(null)
   const avatarRef = useRef<HTMLDivElement>(null)
@@ -323,12 +323,12 @@ export const Header: FC<HeaderProps> = () => {
     }
 
     const updateHeaderStyles = () => {
-      const headerElement = headerRef.current;
+      const headerElement = headerRef.current
       if (!headerElement) {
-        return;
+        return
       }
 
-      const { top, height } = headerElement.getBoundingClientRect();
+      const { top, height } = headerElement.getBoundingClientRect()
       const scrollY = clamp(
         window.scrollY,
         0,
@@ -336,31 +336,31 @@ export const Header: FC<HeaderProps> = () => {
       )
 
       if (isInitial.current) {
-        setProperty('--header-position', 'sticky')
+        setProperty("--header-position", "sticky")
       }
 
-      setProperty('--content-offset', `${downDelay}px`)
+      setProperty("--content-offset", `${downDelay}px`)
 
       if (isInitial.current || scrollY < downDelay) {
-        setProperty('--header-height', `${downDelay + height}px`)
-        setProperty('--header-mb', `${-downDelay}px`)
+        setProperty("--header-height", `${downDelay + height}px`)
+        setProperty("--header-mb", `${-downDelay}px`)
       } else if (top + height < -upDelay) {
         const offset = Math.max(height, scrollY - upDelay)
-        setProperty('--header-height', `${offset}px`)
-        setProperty('--header-mb', `${height - offset}px`)
+        setProperty("--header-height", `${offset}px`)
+        setProperty("--header-mb", `${height - offset}px`)
       } else if (top === 0) {
-        setProperty('--header-height', `${scrollY + height}px`)
-        setProperty('--header-mb', `${-scrollY}px`)
+        setProperty("--header-height", `${scrollY + height}px`)
+        setProperty("--header-mb", `${-scrollY}px`)
       }
 
       if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-        setProperty('--header-inner-position', 'fixed')
-        removeProperty('--header-top')
-        removeProperty('--avatar-top')
+        setProperty("--header-inner-position", "fixed")
+        removeProperty("--header-top")
+        removeProperty("--avatar-top")
       } else {
-        removeProperty('--header-inner-position')
-        setProperty('--header-top', '0px')
-        setProperty('--avatar-top', '0px')
+        removeProperty("--header-inner-position")
+        setProperty("--header-top", "0px")
+        setProperty("--avatar-top", "0px")
       }
     }
 
@@ -383,7 +383,7 @@ export const Header: FC<HeaderProps> = () => {
       x = clamp(x, fromX, toX)
 
       setProperty(
-        '--avatar-image-transform',
+        "--avatar-image-transform",
         `translate3d(${x}rem, 0, 0) scale(${scale})`
       )
 
@@ -391,8 +391,8 @@ export const Header: FC<HeaderProps> = () => {
       const borderX = (-toX + x) * borderScale
       const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`
 
-      setProperty('--avatar-border-transform', borderTransform)
-      setProperty('--avatar-border-opacity', scale === toScale ? 1 : 0)
+      setProperty("--avatar-border-transform", borderTransform)
+      setProperty("--avatar-border-opacity", scale === toScale ? 1 : 0)
     }
 
     const updateStyles = () => {
@@ -402,12 +402,12 @@ export const Header: FC<HeaderProps> = () => {
     }
 
     updateStyles()
-    window.addEventListener('scroll', updateStyles, { passive: true })
-    window.addEventListener('resize', updateStyles)
+    window.addEventListener("scroll", updateStyles, { passive: true })
+    window.addEventListener("resize", updateStyles)
 
     return () => {
-      window.removeEventListener('scroll', updateStyles)
-      window.removeEventListener('resize', updateStyles)
+      window.removeEventListener("scroll", updateStyles)
+      window.removeEventListener("resize", updateStyles)
     }
   }, [isHomePage])
 
@@ -416,8 +416,8 @@ export const Header: FC<HeaderProps> = () => {
       <header
         className="pointer-events-none relative z-50 flex flex-col"
         style={{
-          height: 'var(--header-height)',
-          marginBottom: 'var(--header-mb)',
+          height: "var(--header-height)",
+          marginBottom: "var(--header-mb)",
         }}
       >
         {isHomePage && (
@@ -428,24 +428,29 @@ export const Header: FC<HeaderProps> = () => {
             />
             <Container
               className="top-0 order-last -mb-3 pt-3"
-              style={{ position: 'var(--header-position)' as CssPosition }}
+              style={{ position: "var(--header-position)" as CssPosition }}
             >
               <div
                 className="top-[var(--avatar-top,theme(spacing.3))] w-full"
-                style={{ position: 'var(--header-inner-position)' as CssPosition }}
+                style={{
+                  position: "var(--header-inner-position)" as CssPosition,
+                }}
               >
                 <div className="relative">
                   <AvatarContainer
                     className="absolute left-0 top-3 origin-left transition-opacity"
                     style={{
-                      opacity: 'var(--avatar-border-opacity, 0)' as CssPosition,
-                      transform: 'var(--avatar-border-transform)'as CssPosition,
+                      opacity: "var(--avatar-border-opacity, 0)" as CssPosition,
+                      transform:
+                        "var(--avatar-border-transform)" as CssPosition,
                     }}
                   />
                   <Avatar
                     large
                     className="block h-16 w-16 origin-left"
-                    style={{ transform: 'var(--avatar-image-transform)' as CssPosition }}
+                    style={{
+                      transform: "var(--avatar-image-transform)" as CssPosition,
+                    }}
                   />
                 </div>
               </div>
@@ -455,11 +460,11 @@ export const Header: FC<HeaderProps> = () => {
         <div
           ref={headerRef}
           className="top-0 z-10 h-16 pt-6"
-          style={{ position: 'var(--header-position)' as CssPosition }}
+          style={{ position: "var(--header-position)" as CssPosition }}
         >
           <Container
             className="top-[var(--header-top,theme(spacing.6))] w-full"
-            style={{ position: 'var(--header-inner-position)' as CssPosition }}
+            style={{ position: "var(--header-inner-position)" as CssPosition }}
           >
             <div className="relative flex gap-4">
               <div className="flex flex-1">
@@ -482,7 +487,7 @@ export const Header: FC<HeaderProps> = () => {
           </Container>
         </div>
       </header>
-      {isHomePage && <div style={{ height: 'var(--content-offset)' }} />}
+      {isHomePage && <div style={{ height: "var(--content-offset)" }} />}
     </>
   )
 }

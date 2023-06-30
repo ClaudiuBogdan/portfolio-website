@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import Link, { LinkProps } from 'next/link'
-import clsx from 'clsx'
+import { FC } from "react"
+import Link, { LinkProps } from "next/link"
+import clsx from "clsx"
 
 type CardProps = {
   as?: React.ElementType
@@ -45,7 +45,7 @@ type CardEyebrowProps = {
   dateTime?: string
 }
 
-const ChevronRightIcon: FC<{className?: string}> = (props) => {
+const ChevronRightIcon: FC<{ className?: string }> = (props) => {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
       <path
@@ -58,10 +58,10 @@ const ChevronRightIcon: FC<{className?: string}> = (props) => {
   )
 }
 
-export const Card: TCard = ({ as: Component = 'div', className, children }) => {
+export const Card: TCard = ({ as: Component = "div", className, children }) => {
   return (
     <Component
-      className={clsx(className, 'group relative flex flex-col items-start')}
+      className={clsx(className, "group relative flex flex-col items-start")}
     >
       {children}
     </Component>
@@ -80,7 +80,11 @@ const CardLink: FC<CardLinkProps> = ({ children, ...props }) => {
   )
 }
 
-const CardTitle: FC<CardTileProps> = ({ as: Component = 'h2', href, children }) => {
+const CardTitle: FC<CardTileProps> = ({
+  as: Component = "h2",
+  href,
+  children,
+}) => {
   return (
     <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
@@ -109,7 +113,7 @@ const CardCta: FC<CardCtaProps> = ({ children }) => {
 }
 
 const CardEyebrow: FC<CardEyebrowProps> = ({
-  as: Component = 'p',
+  as: Component = "p",
   decorate = false,
   className,
   children,
@@ -119,8 +123,8 @@ const CardEyebrow: FC<CardEyebrowProps> = ({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
-        decorate && 'pl-3.5'
+        "relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500",
+        decorate && "pl-3.5"
       )}
       {...props}
     >
@@ -142,4 +146,3 @@ Card.Title = CardTitle
 Card.Description = CardDescription
 Card.Cta = CardCta
 Card.Eyebrow = CardEyebrow
-

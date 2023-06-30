@@ -1,5 +1,5 @@
-import { Head, Html, Main, NextScript } from 'next/document'
-import Script from 'next/script'
+import { Head, Html, Main, NextScript } from "next/document"
+import Script from "next/script"
 
 export default function Document() {
   return (
@@ -16,15 +16,15 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
 
-        <Script 
-        id='theme-mode-script' 
-        src="/scripts/themeMode.js"
-        strategy="beforeInteractive"/>
-
+        <Script
+          id="theme-mode-script"
+          src="/scripts/themeMode.js"
+          strategy="beforeInteractive"
+        />
       </Head>
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         <Main />
-        <NextScript />        
+        <NextScript />
       </body>
     </Html>
   )

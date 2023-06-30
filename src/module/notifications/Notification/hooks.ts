@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export const useNotificationLifecycle = (
   notificationId: string,
@@ -6,24 +6,24 @@ export const useNotificationLifecycle = (
   mounted: boolean,
   hide?: boolean
 ) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
     if (mounted) {
-      setShow(true);
+      setShow(true)
     }
-  }, [mounted]);
+  }, [mounted])
 
   useEffect(() => {
-    const animationDuration = 300;
+    const animationDuration = 300
     if (hide) {
-      setShow(false);
+      setShow(false)
       const timeout = setTimeout(() => {
-        onClose(notificationId);
-      }, animationDuration);
-      return () => clearTimeout(timeout);
+        onClose(notificationId)
+      }, animationDuration)
+      return () => clearTimeout(timeout)
     }
-  }, [notificationId, hide, onClose]);
+  }, [notificationId, hide, onClose])
 
-  return show;
-};
+  return show
+}

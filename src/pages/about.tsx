@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
+import clsx from "clsx"
 
-import { Container } from '@/components/Container'
+import { Container } from "@/components/Container"
 import {
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
   TwitterIcon,
-} from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+} from "@/components/SocialIcons"
+import portraitImage from "@/images/portrait.jpg"
 
 type SocialLinkProps = {
   className?: string
@@ -19,9 +19,14 @@ type SocialLinkProps = {
   icon: React.ElementType
 }
 
-function SocialLink({ className, href, children, icon: Icon }: SocialLinkProps) {
+function SocialLink({
+  className,
+  href,
+  children,
+  icon: Icon,
+}: SocialLinkProps) {
   return (
-    <li className={clsx(className, 'flex')}>
+    <li className={clsx(className, "flex")}>
       <Link
         href={href}
         className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
@@ -33,7 +38,7 @@ function SocialLink({ className, href, children, icon: Icon }: SocialLinkProps) 
   )
 }
 
-function MailIcon(props: React.ComponentProps<'svg'>) {
+function MailIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
@@ -95,7 +100,7 @@ export default function About() {
               <p>
                 Today, I’m the founder of Planetaria, where we’re working on
                 civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
+                home so that the next generation of kids really <em>can</em>{" "}
                 make it to orbit — from the comfort of their own backyards.
               </p>
             </div>

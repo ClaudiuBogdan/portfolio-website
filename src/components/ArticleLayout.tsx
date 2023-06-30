@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { FC } from "react"
+import Head from "next/head"
+import { useRouter } from "next/router"
 
-import { Container } from '@/components/Container'
-import { Prose } from '@/components/Prose'
-import { formatDate } from '@/lib/formatDate'
+import { Container } from "@/components/Container"
+import { Prose } from "@/components/Prose"
+import { formatDate } from "@/lib/formatDate"
 
 type ArticleLayoutProps = {
   meta: {
@@ -20,7 +20,6 @@ type ArticleLayoutProps = {
 type ArrowLeftIconProps = {
   className?: string
 }
-
 
 export const ArrowLeftIcon: FC<ArrowLeftIconProps> = (props) => {
   return (
@@ -87,4 +86,3 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
     </>
   )
 }
-

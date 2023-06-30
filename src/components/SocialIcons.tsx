@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from "react"
 
-type IconProps = Record<string, never>;
+type IconProps = Record<string, never>
 
 export const TwitterIcon: FC<IconProps> = (props) => {
   return (

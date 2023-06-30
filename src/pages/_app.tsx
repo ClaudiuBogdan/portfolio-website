@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react"
 
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { Footer } from "@/components/Footer"
+import { Header } from "@/components/Header"
 
-import { AppProps } from 'next/app'
-import '@/styles/globals.css'
-import 'focus-visible'
-import { NotificationProvider } from '@/module/notifications'
+import { AppProps } from "next/app"
+import "@/styles/globals.css"
+import "focus-visible"
+import { NotificationProvider } from "@/module/notifications"
 
 function usePrevious<T = unknown>(value: T) {
   const ref = useRef<T>()
@@ -18,7 +18,7 @@ function usePrevious<T = unknown>(value: T) {
   return ref.current
 }
 
-export default function App({ Component, pageProps, router }:  AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   const previousPathname = usePrevious<string>(router.pathname)
 
   return (

@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react";
-import { NotificationData } from "./types";
+import { useEffect, useState } from "react"
+import { NotificationData } from "./types"
 
 export const useNotificationsLifecycle = () => {
-  const [notifications, setNotifications] = useState<NotificationData[]>([]);
+  const [notifications, setNotifications] = useState<NotificationData[]>([])
 
   useEffect(() => {
-    let nextNotificationCloseTime: number | null = null;
+    let nextNotificationCloseTime: number | null = null
     const updateNextCloseTime = (closeTime: number | null | undefined) => {
       if (closeTime === null || closeTime === undefined) {
-        return;
+        return
       }
       if (
         nextNotificationCloseTime === null ||
         closeTime < nextNotificationCloseTime
       ) {
-        nextNotificationCloseTime = closeTime;
+        nextNotificationCloseTime = closeTime
       }
-    };
+    }
 
     notifications.forEach((notification) => {
-      updateNextCloseTime(notification.closeAt);
-    });
-    if (nextNotificationCloseTime === null) return;
+      updateNextCloseTime(notification.closeAt)
+    })
+    if (nextNotificationCloseTime === null) return
 
-    const closeNotificationDelay = nextNotificationCloseTime - Date.now();
+    const closeNotificationDelay = nextNotificationCloseTime - Date.now()
 
-    if (closeNotificationDelay < 0) return;
+    if (closeNotificationDelay < 0) return
 
     const timeout = setTimeout(() => {
       setNotifications((notifications) =>
@@ -35,10 +35,10 @@ export const useNotificationsLifecycle = () => {
             typeof notification.closeAt === "number" &&
             notification.closeAt <= Date.now(),
         }))
-      );
-    }, closeNotificationDelay);
-    return () => clearTimeout(timeout);
-  }, [notifications]);
+      )
+    }, closeNotificationDelay)
+    return () => clearTimeout(timeout)
+  }, [notifications])
 
-  return [notifications, setNotifications] as const;
-};
+  return [notifications, setNotifications] as const
+}

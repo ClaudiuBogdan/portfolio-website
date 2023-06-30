@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import Head from "next/head"
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import { formatDate } from '@/lib/formatDate'
-import { getAllArticles } from '@/lib/getAllArticles'
+import { Card } from "@/components/Card"
+import { SimpleLayout } from "@/components/SimpleLayout"
+import { formatDate } from "@/lib/formatDate"
+import { getAllArticles } from "@/lib/getAllArticles"
 
 type TArticle = {
   title: string

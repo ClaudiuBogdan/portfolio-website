@@ -1,14 +1,14 @@
-import Link from 'next/link'
+import Link from "next/link"
 
-import { Container } from '@/components/Container'
-import { FC } from 'react'
+import { Container } from "@/components/Container"
+import { FC } from "react"
 
 type NavLinkProps = {
   href: string
   children: React.ReactNode
 }
 
-const NavLink: FC <NavLinkProps> = ({ href, children }) => {
+const NavLink: FC<NavLinkProps> = ({ href, children }) => {
   return (
     <Link
       href={href}
