@@ -6,7 +6,7 @@ import { Header } from "@/components/Header"
 import { AppProps } from "next/app"
 import "@/styles/globals.css"
 import "focus-visible"
-import { NotificationProvider } from "@/module/notifications"
+import { NotificationProvider } from "@/modules/notifications"
 
 function usePrevious<T = unknown>(value: T) {
   const ref = useRef<T>()

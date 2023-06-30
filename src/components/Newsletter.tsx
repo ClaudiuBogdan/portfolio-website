@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { Button } from "./Button"
 import { MailIcon } from "./Icons/MailIcon"
 import { useSubscribeToNewsletter } from "@/adapters/api"
-import { useNotification } from "@/module/notifications"
+import { useNotification } from "@/modules/notifications"
 import en from "@/locales/en.json"
 
 const text = en.components.newsletter
