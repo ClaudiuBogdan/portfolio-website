@@ -1,33 +1,41 @@
-import { FC, Fragment, useEffect, useState } from "react";
-import { Transition } from "@headlessui/react";
-import { createPortal } from "react-dom";
-import { NotificationData } from "../NotificationContext/types";
-import { NotificationIcon } from "./NotificationIcon";
-import { useNotificationLifecycle } from "./hooks";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { FC, Fragment, useEffect, useState } from "react"
+import { Transition } from "@headlessui/react"
+import { createPortal } from "react-dom"
+import { NotificationData } from "../NotificationContext/types"
+import { NotificationIcon } from "./NotificationIcon"
+import { useNotificationLifecycle } from "./hooks"
+import { XMarkIcon } from "@heroicons/react/24/outline"
 
 type NotificationProps = {
   notification: NotificationData
-  onClose: (notificationId: string) => void;
-};
+  onClose: (notificationId: string) => void
+}
 
 /**
  * The component displayed as a notification using a portal
  */
-export const Notification: FC<NotificationProps> = ({ notification, onClose }) => {
-  const notificationId = notification.id;
-  const [mounted, setMounted] = useState(false);
-  const show = useNotificationLifecycle(notificationId, onClose, mounted, notification.hide);
+export const Notification: FC<NotificationProps> = ({
+  notification,
+  onClose,
+}) => {
+  const notificationId = notification.id
+  const [mounted, setMounted] = useState(false)
+  const show = useNotificationLifecycle(
+    notificationId,
+    onClose,
+    mounted,
+    notification.hide
+  )
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   const handleCloseClick = () => {
-    onClose(notificationId);
-  };
+    onClose(notificationId)
+  }
 
-  if (!mounted) return null;
+  if (!mounted) return null
 
   return createPortal(
     <>
@@ -80,5 +88,5 @@ export const Notification: FC<NotificationProps> = ({ notification, onClose }) =
       </div>
     </>,
     document.body
-  );
-};
+  )
+}

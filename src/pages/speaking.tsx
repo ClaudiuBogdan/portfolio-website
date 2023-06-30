@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from "next/head"
 
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from "@/components/Card"
+import { Section } from "@/components/Section"
+import { SimpleLayout } from "@/components/SimpleLayout"
 
 type SpeakingSectionProps = {
   children: React.ReactNode

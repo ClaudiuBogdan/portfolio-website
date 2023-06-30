@@ -1,3 +1,3 @@
-import { useSubscribeToNewsletter } from './subscription';
+import { useSubscribeToNewsletter } from "./subscription"
 
-export {useSubscribeToNewsletter}
+export { useSubscribeToNewsletter }

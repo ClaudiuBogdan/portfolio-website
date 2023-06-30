@@ -1,21 +1,21 @@
-import ReactDOMServer from 'react-dom/server'
-import { Feed } from 'feed'
-import { mkdir, writeFile } from 'fs/promises'
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import ReactDOMServer from "react-dom/server"
+import { Feed } from "feed"
+import { mkdir, writeFile } from "fs/promises"
+import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider"
 
-import { getAllArticles } from './getAllArticles'
+import { getAllArticles } from "./getAllArticles"
 
 export async function generateRssFeed() {
   const articles = await getAllArticles()
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL as string
   const author = {
-    name: 'Claudiu C. Bogdan',
-    email: 'contact@devostack.com',
+    name: "Claudiu C. Bogdan",
+    email: "contact@devostack.com",
   }
 
   const feed = new Feed({
     title: author.name,
-    description: 'Your blog description',
+    description: "Your blog description",
     author,
     id: siteUrl,
     link: siteUrl,
@@ -32,7 +32,7 @@ export async function generateRssFeed() {
     const url = `${siteUrl}/articles/${article.slug}`
     const html = ReactDOMServer.renderToStaticMarkup(
       <MemoryRouterProvider>
-         <article.component isRssFeed />
+        <article.component isRssFeed />
       </MemoryRouterProvider>
     )
 
@@ -48,9 +48,9 @@ export async function generateRssFeed() {
     })
   }
 
-  await mkdir('./public/rss', { recursive: true })
+  await mkdir("./public/rss", { recursive: true })
   await Promise.all([
-    writeFile('./public/rss/feed.xml', feed.rss2(), 'utf8'),
-    writeFile('./public/rss/feed.json', feed.json1(), 'utf8'),
+    writeFile("./public/rss/feed.xml", feed.rss2(), "utf8"),
+    writeFile("./public/rss/feed.json", feed.json1(), "utf8"),
   ])
 }

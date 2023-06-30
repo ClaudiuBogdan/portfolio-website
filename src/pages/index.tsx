@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import { Container } from '@/components/Container'
-import { IconMapper } from '@/components/SocialIcons'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { SocialLink } from '@/components/SocialLink'
-import { Photos } from '@/components/Photos'
-import { Article } from '@/components/Article'
-import { Newsletter } from '@/components/Newsletter'
-import { Resume } from '@/components/Resume'
-import en from '@/locales/en.json'
+import Head from "next/head"
+import { Container } from "@/components/Container"
+import { IconMapper } from "@/components/SocialIcons"
+import { generateRssFeed } from "@/lib/generateRssFeed"
+import { getAllArticles } from "@/lib/getAllArticles"
+import { SocialLink } from "@/components/SocialLink"
+import { Photos } from "@/components/Photos"
+import { Article } from "@/components/Article"
+import { Newsletter } from "@/components/Newsletter"
+import { Resume } from "@/components/Resume"
+import en from "@/locales/en.json"
 
 type TArticle = {
   title: string
@@ -18,20 +18,14 @@ type TArticle = {
   image: string
 }
 
-
 export default function Home({ articles }: { articles: TArticle[] }) {
   const text = en.pages.home
   const socialLinks = en.socialLinks
   return (
     <>
       <Head>
-        <title>
-          {text.meta.title}
-        </title>
-        <meta
-          name="description"
-          content={text.meta.description}
-        />
+        <title>{text.meta.title}</title>
+        <meta name="description" content={text.meta.description} />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
@@ -72,7 +66,7 @@ export default function Home({ articles }: { articles: TArticle[] }) {
 }
 
 export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     await generateRssFeed()
   }
 
@@ -80,7 +74,7 @@ export async function getStaticProps() {
     props: {
       articles: (await getAllArticles())
         .slice(0, 4)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .map(({ component, ...meta }) => meta),
     },
   }

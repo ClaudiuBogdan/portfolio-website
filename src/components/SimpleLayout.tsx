@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Container } from '@/components/Container'
+import { FC } from "react"
+import { Container } from "@/components/Container"
 
 type SimpleLayoutProps = {
   title: string
@@ -7,7 +7,11 @@ type SimpleLayoutProps = {
   children?: React.ReactNode
 }
 
-export const SimpleLayout: FC<SimpleLayoutProps> = ({ title, intro, children }) => {
+export const SimpleLayout: FC<SimpleLayoutProps> = ({
+  title,
+  intro,
+  children,
+}) => {
   return (
     <Container className="mt-16 sm:mt-32">
       <header className="max-w-2xl">

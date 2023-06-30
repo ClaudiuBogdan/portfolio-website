@@ -1,11 +1,10 @@
-import { FC } from 'react'
-import { useId } from 'react'
+import { FC } from "react"
+import { useId } from "react"
 
 type SectionProps = {
   title: string
   children: React.ReactNode
 }
-
 
 export const Section: FC<SectionProps> = ({ title, children }) => {
   const id = useId()
