@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-import { Container } from "@/components/Container"
 import { FC } from "react"
+import { Container } from "@/components/Container"
 
 type NavLinkProps = {
   href: string

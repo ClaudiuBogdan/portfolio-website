@@ -1,9 +1,9 @@
-import { FC, Fragment, useEffect, useRef } from "react"
+import { Popover, Transition } from "@headlessui/react"
+import clsx from "clsx"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { Popover, Transition } from "@headlessui/react"
-import clsx from "clsx"
+import { FC, Fragment, useEffect, useRef } from "react"
 
 import { Container } from "@/components/Container"
 import avatarImage from "@/images/avatar.jpg"

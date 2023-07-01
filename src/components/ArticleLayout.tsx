@@ -1,6 +1,6 @@
-import { FC } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { FC } from "react"
 
 import { Container } from "@/components/Container"
 import { Prose } from "@/components/Prose"

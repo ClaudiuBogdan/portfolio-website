@@ -1,9 +1,9 @@
+import { AppProps } from "next/app"
 import { useEffect, useRef } from "react"
 
 import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
 
-import { AppProps } from "next/app"
 import "@/styles/globals.css"
 import "focus-visible"
 import { NotificationProvider } from "@/modules/notifications"

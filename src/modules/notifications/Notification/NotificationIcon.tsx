@@ -1,5 +1,5 @@
-import { FC } from "react"
 import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import { FC } from "react"
 
 export const NotificationIcon: FC<{ type: "success" | "error" }> = ({
   type,

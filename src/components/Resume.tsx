@@ -1,9 +1,9 @@
 import Image from "next/image"
 
 import { Button } from "@/components/Button"
-import en from "@/locales/en.json"
-import { BriefcaseIcon } from "@/components/Icons/BriefcaseIcon"
 import { ArrowDownIcon } from "@/components/Icons/ArrowDownIcon"
+import { BriefcaseIcon } from "@/components/Icons/BriefcaseIcon"
+import en from "@/locales/en.json"
 import { LogoMapper } from "./Logos"
 
 type Role = {

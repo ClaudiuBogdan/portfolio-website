@@ -1,6 +1,6 @@
-import { clientConfig } from "@/modules/config/client"
 import { Head, Html, Main, NextScript } from "next/document"
 import Script from "next/script"
+import { clientConfig } from "@/modules/config/client"
 
 const baseUrl = clientConfig.baseUrl
 

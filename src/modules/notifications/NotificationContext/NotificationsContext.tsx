@@ -1,8 +1,8 @@
 import React, { createContext, useCallback, useContext } from "react"
-import { Notification } from "../Notification/Notification"
+import { useNotificationsLifecycle } from "./hooks"
 import { NotificationData, NotificationPayload } from "./types"
 import { getCloseTime } from "./utils"
-import { useNotificationsLifecycle } from "./hooks"
+import { Notification } from "../Notification/Notification"
 
 interface NotificationContextType {
   addNotification: (notification: NotificationPayload) => void

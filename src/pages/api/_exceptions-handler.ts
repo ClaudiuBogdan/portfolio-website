@@ -1,5 +1,5 @@
-import { HttpException } from "next-api-decorators"
 import { NextApiRequest, NextApiResponse } from "next/types"
+import { HttpException } from "next-api-decorators"
 
 export function exceptionHandler(
   error: Error,
