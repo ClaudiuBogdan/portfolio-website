@@ -1,6 +1,6 @@
-import { FC } from "react"
-import Link, { LinkProps } from "next/link"
 import clsx from "clsx"
+import Link, { LinkProps } from "next/link"
+import { FC } from "react"
 
 type CardProps = {
   as?: React.ElementType

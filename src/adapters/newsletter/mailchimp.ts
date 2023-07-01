@@ -1,6 +1,6 @@
-import { apiConfig } from "@/modules/config/api"
 import mailchimp from "@mailchimp/mailchimp_marketing"
 import crypto from "crypto"
+import { apiConfig } from "@/modules/config/api"
 
 const apiKey = apiConfig.mailchimp.apiKey
 const server = apiConfig.mailchimp.serverPrefix // e.g. us1

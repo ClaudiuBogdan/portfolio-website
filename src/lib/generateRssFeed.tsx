@@ -1,10 +1,10 @@
-import ReactDOMServer from "react-dom/server"
 import { Feed } from "feed"
-import { mkdir, writeFile } from "fs/promises"
 import { MemoryRouterProvider } from "next-router-mock/MemoryRouterProvider"
+import ReactDOMServer from "react-dom/server"
+import { mkdir, writeFile } from "fs/promises"
 
-import { getAllArticles } from "./getAllArticles"
 import { clientConfig } from "@/modules/config/client"
+import { getAllArticles } from "./getAllArticles"
 
 export async function generateRssFeed() {
   const articles = await getAllArticles()

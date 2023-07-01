@@ -1,10 +1,10 @@
-import { FC, Fragment, useEffect, useState } from "react"
 import { Transition } from "@headlessui/react"
+import { XMarkIcon } from "@heroicons/react/24/outline"
+import { FC, Fragment, useEffect, useState } from "react"
 import { createPortal } from "react-dom"
-import { NotificationData } from "../NotificationContext/types"
 import { NotificationIcon } from "./NotificationIcon"
 import { useNotificationLifecycle } from "./hooks"
-import { XMarkIcon } from "@heroicons/react/24/outline"
+import { NotificationData } from "../NotificationContext/types"
 
 type NotificationProps = {
   notification: NotificationData
