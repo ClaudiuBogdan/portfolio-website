@@ -10,10 +10,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+env:
+  NEXT_PUBLIC_SITE_URL: http://localhost:3000
+  MAILCHIMP_API_KEY: empty
+  MAILCHIMP_LIST_ID: empty
+  MAILCHIMP_SERVER_PREFIX: empty
+  
 jobs:
   build-and-test-unit:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
