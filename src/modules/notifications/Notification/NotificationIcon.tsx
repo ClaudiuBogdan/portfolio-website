@@ -5,9 +5,9 @@ export const NotificationIcon: FC<{ type: "success" | "error" }> = ({
   type,
 }) => {
   if (type === "success") {
-    return <CheckCircleIcon className="w-6 h-6 text-green-400" />
+    return <CheckCircleIcon className="h-6 w-6 text-green-400" />
   }
-  if (type === "error") return <XMarkIcon className="w-6 h-6 text-red-400" />
+  if (type === "error") return <XMarkIcon className="h-6 w-6 text-red-400" />
 
   return null
 }
