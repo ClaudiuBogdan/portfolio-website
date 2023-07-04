@@ -11,18 +11,37 @@
     "about": {
       "head": {
         "title": "About - Claudiu C. Bogdan",
-        "description": "I’m Claudiu C. Bogdan. I live in New York City, where I design the future."
+        "description": "I'm Claudiu C. Bogdan. I live in New York City, where I design the future."
       },
-      "title": "I’m Claudiu C. Bogdan. I live in New York City, where I design the future.",
+      "title": "I'm Claudiu C. Bogdan. I live in New York City, where I design the future.",
       "descriptionParagraphs": ["Paragraph 1", "Paragraph 2", "Paragraph 3"]
     },
     "projects": {
-      "head":{
+      "head": {
         "title": "Projects - Claudiu C. Bogdan",
-        "description": "Things I’ve made trying to put my dent in the universe."
+        "description": "Things I've made trying to put my dent in the universe."
       },
-      "title": "Things I’ve made trying to put my dent in the universe.",
-      "intro": "I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      "title": "Things I've made trying to put my dent in the universe.",
+      "intro": "I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+    },
+    "uses": {
+      "head": {
+        "title": "Uses - Claudiu C. Bogdan",
+        "description": "Software I use, gadgets I love, and other things I recommend."
+      },
+      "title": "Software I use, gadgets I love, and other things I recommend.",
+      "intro": "I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I'm being productive when I'm really just procrastinating. Here's a big list of all of my favorite stuff.",
+      "tools": [
+        {
+          "category": "Workstation",
+          "items": [
+            {
+              "title": "16” MacBook Pro, M1 Max, 64GB RAM (2021)",
+              "description": "I was using an Intel-based 16” MacBook Pro prior to this and the difference is night and day. I’ve never heard the fans turn on a single time, even under the incredibly heavy loads I put it through with our various launch simulations."
+            }
+          ]
+        }
+      ]
     }
   },
   "components": {
@@ -103,44 +122,38 @@
       "end": "2011"
     }
   ],
-  "projects":[
+  "projects": [
     {
       "name": "Planetaria",
-      "description":
-        "Creating technology to empower civilians to explore space on their own terms.",
+      "description": "Creating technology to empower civilians to explore space on their own terms.",
       "link": { "href": "http://planetaria.tech", "label": "planetaria.tech" },
       "logo": "logoPlanetaria"
     },
     {
       "name": "Animaginary",
-      "description":
-        "High performance web animation library, hand-written in optimized WASM.",
+      "description": "High performance web animation library, hand-written in optimized WASM.",
       "link": { "href": "#", "label": "github.com" },
       "logo": "logoAnimaginary"
     },
     {
       "name": "HelioStream",
-      "description":
-        "Real-time video streaming library, optimized for interstellar transmission.",
+      "description": "Real-time video streaming library, optimized for interstellar transmission.",
       "link": { "href": "#", "label": "github.com" },
       "logo": "logoHelioStream"
     },
     {
       "name": "cosmOS",
-      "description":
-        "The operating system that powers our Planetaria space shuttles.",
+      "description": "The operating system that powers our Planetaria space shuttles.",
       "link": { "href": "#", "label": "github.com" },
       "logo": "logoCosmos"
     },
     {
       "name": "OpenShuttle",
-      "description":
-        "The schematics for the first rocket I designed that successfully made it to orbit.",
+      "description": "The schematics for the first rocket I designed that successfully made it to orbit.",
       "link": { "href": "#", "label": "github.com" },
       "logo": "logoOpenShuttle"
     }
-  ]
-  ,
+  ],
   "resume": {
     "link": "/resume.pdf",
     "label": "Download CV"
