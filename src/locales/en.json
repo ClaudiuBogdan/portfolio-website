@@ -67,6 +67,15 @@
         "projects": "Projects",
         "uses": "Uses"
       }
+    },
+    "footer": {
+      "nav": {
+        "about": "About",
+        "articles": "Articles",
+        "projects": "Projects",
+        "uses": "Uses"
+      },
+      "allRightsReserved": "Claudiu C. Bogdan. All rights reserved."
     }
   },
   "email": {

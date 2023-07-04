@@ -2,6 +2,9 @@ import Link from "next/link"
 
 import { FC } from "react"
 import { Container } from "@/components/Container"
+import en from "@/locales/en.json"
+
+const text = en.components.footer
 
 type NavLinkProps = {
   href: string
@@ -27,13 +30,13 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/uses">Uses</NavLink>
+                <NavLink href="/about">{text.nav.about}</NavLink>
+                <NavLink href="/articles">{text.nav.articles}</NavLink>
+                <NavLink href="/projects">{text.nav.projects}</NavLink>
+                <NavLink href="/uses">{text.nav.uses}</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Claudiu C. Bogdan. All rights
-                reserved.
+                &copy; {new Date().getFullYear()} {text.allRightsReserved}
               </p>
             </div>
           </Container.Inner>
