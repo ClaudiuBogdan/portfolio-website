@@ -1,4 +1,5 @@
 import React, { FC } from "react"
+import { EmailIcon } from "./Icons/EmailIcon"
 
 type IconProps = Record<string, never>
 
@@ -39,9 +40,19 @@ export const LinkedInIcon: FC<IconProps> = (props) => {
   )
 }
 
-export const IconMapper: Record<string, FC<IconProps>> = {
-  twitter: TwitterIcon,
-  github: GitHubIcon,
-  linkedin: LinkedInIcon,
-  instagram: InstagramIcon,
+export const mapSocialLinkToIcon = (iconName: string): FC<IconProps> => {
+  const IconMapper: Record<string, FC<IconProps>> = {
+    twitter: TwitterIcon,
+    github: GitHubIcon,
+    linkedin: LinkedInIcon,
+    instagram: InstagramIcon,
+    email: EmailIcon,
+  }
+  const icon = IconMapper[iconName]
+
+  if (!icon) {
+    throw new Error(`No icon for the iconName: ${iconName}`)
+  }
+
+  return icon
 }
