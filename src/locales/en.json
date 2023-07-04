@@ -58,6 +58,15 @@
         "title": "Something went wrong",
         "description": "Please try again."
       }
+    },
+    "header": {
+      "nav": {
+        "navigation": "Navigation",
+        "about": "About",
+        "articles": "Articles",
+        "projects": "Projects",
+        "uses": "Uses"
+      }
     }
   },
   "email": {
