@@ -4,7 +4,7 @@ import { Container } from "@/components/Container"
 import { Newsletter } from "@/components/Newsletter"
 import { Photos } from "@/components/Photos"
 import { Resume } from "@/components/Resume"
-import { IconMapper } from "@/components/SocialIcons"
+import { mapSocialLinkToIcon } from "@/components/SocialIcons"
 import { SocialLink } from "@/components/SocialLink"
 import { generateRssFeed } from "@/lib/generateRssFeed"
 import { getAllArticles } from "@/lib/getAllArticles"
@@ -41,8 +41,8 @@ export default function Home({ articles }: { articles: TArticle[] }) {
               <SocialLink
                 key={socialLink.name}
                 href={socialLink.href}
-                aria-label={socialLink.ariaLabel}
-                icon={IconMapper[socialLink.icon]}
+                aria-label={socialLink.label}
+                icon={mapSocialLinkToIcon(socialLink.icon)}
               />
             ))}
           </div>
