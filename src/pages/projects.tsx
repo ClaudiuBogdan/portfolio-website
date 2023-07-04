@@ -3,49 +3,15 @@ import Image from "next/image"
 
 import { Card } from "@/components/Card"
 import { SimpleLayout } from "@/components/SimpleLayout"
-import logoAnimaginary from "@/images/logos/animaginary.svg"
-import logoCosmos from "@/images/logos/cosmos.svg"
-import logoHelioStream from "@/images/logos/helio-stream.svg"
-import logoOpenShuttle from "@/images/logos/open-shuttle.svg"
-import logoPlanetaria from "@/images/logos/planetaria.svg"
+import LogoAnimaginary from "@/images/logos/animaginary.svg"
+import LogoCosmos from "@/images/logos/cosmos.svg"
+import LogoHelioStream from "@/images/logos/helio-stream.svg"
+import LogoOpenShuttle from "@/images/logos/open-shuttle.svg"
+import LogoPlanetaria from "@/images/logos/planetaria.svg"
+import en from "@/locales/en.json"
 
-const projects = [
-  {
-    name: "Planetaria",
-    description:
-      "Creating technology to empower civilians to explore space on their own terms.",
-    link: { href: "http://planetaria.tech", label: "planetaria.tech" },
-    logo: logoPlanetaria,
-  },
-  {
-    name: "Animaginary",
-    description:
-      "High performance web animation library, hand-written in optimized WASM.",
-    link: { href: "#", label: "github.com" },
-    logo: logoAnimaginary,
-  },
-  {
-    name: "HelioStream",
-    description:
-      "Real-time video streaming library, optimized for interstellar transmission.",
-    link: { href: "#", label: "github.com" },
-    logo: logoHelioStream,
-  },
-  {
-    name: "cosmOS",
-    description:
-      "The operating system that powers our Planetaria space shuttles.",
-    link: { href: "#", label: "github.com" },
-    logo: logoCosmos,
-  },
-  {
-    name: "OpenShuttle",
-    description:
-      "The schematics for the first rocket I designed that successfully made it to orbit.",
-    link: { href: "#", label: "github.com" },
-    logo: logoOpenShuttle,
-  },
-]
+const projects = en.projects
+const text = en.pages.projects
 
 function LinkIcon(props: React.ComponentProps<"svg">) {
   return (
@@ -58,20 +24,29 @@ function LinkIcon(props: React.ComponentProps<"svg">) {
   )
 }
 
+const mapProjectToLogo = (logoName: string): string => {
+  const LogoMapper: Record<string, string> = {
+    logoAnimaginary: LogoAnimaginary,
+    logoCosmos: LogoCosmos,
+    logoHelioStream: LogoHelioStream,
+    logoOpenShuttle: LogoOpenShuttle,
+    logoPlanetaria: LogoPlanetaria,
+  }
+  const logo = LogoMapper[logoName]
+
+  if (!logo) throw new Error(`No logo for logoName: ${logoName}`)
+
+  return logo
+}
+
 export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Claudiu C. Bogdan</title>
-        <meta
-          name="description"
-          content="Things I’ve made trying to put my dent in the universe."
-        />
+        <title>{text.head.title}</title>
+        <meta name="description" content={text.head.description} />
       </Head>
-      <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
-      >
+      <SimpleLayout title={text.title} intro={text.intro}>
         <ul
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
@@ -80,8 +55,8 @@ export default function Projects() {
             <Card as="li" key={project.name}>
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image
-                  src={project.logo}
-                  alt=""
+                  src={mapProjectToLogo(project.logo)}
+                  alt={project.logo}
                   className="h-8 w-8"
                   unoptimized
                 />
