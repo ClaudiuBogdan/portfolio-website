@@ -180,7 +180,7 @@ const MobileNavigation: FC<MobileNavigationProps> = (props) => {
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
+                </MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
               </ul>
             </nav>
@@ -221,7 +221,7 @@ const DesktopNavigation: FC<DesktopNavigationProps> = (props) => {
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/projects">Projects</NavItem>
-        <NavItem href="/speaking">Speaking</NavItem>
+        <NavItem href="/uses">{text.nav.uses}</NavItem>
         <NavItem href="/uses">Uses</NavItem>
       </ul>
     </nav>
