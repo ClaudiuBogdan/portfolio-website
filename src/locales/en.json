@@ -2,19 +2,33 @@
   "pages": {
     "home": {
       "meta": {
-        "title": "Claudiu C. Bogdan - Software designer, founder, and amateur astronaut",
-        "description": "Senior Software Developer, Software Architect, and Team Lead"
+        "title": "Empowering Digital Transformation with Cutting-Edge Software Solutions",
+        "description": "Hello and welcome!👋 I'm Claudiu, a Senior Software Engineer and an avid problem solver. With an eye for detail and a first-principle thinking approach, I specialize in crafting scalable, reliable, and secure web applications using Node.js and React. Throughout my career, I have been instrumental in accelerating feature development, most notably at Clinchd where I doubled the pace of feature releases. One of my proudest achievements includes creating applications at Persidius Systems that revolutionized waste management for over 175,000 households across 64 Romanian local public administrations. Moreover, while at Mind Treat Studios, I developed an application that effortlessly distributed vouchers to over 100,000 users, handling a staggering 10,000+ concurrent connections during Carrefour's 18th anniversary. My toolbox comprises JavaScript/TypeScript, Python, and modern web development frameworks. With a relentless commitment to innovation, my aim is to harness the power of technology to foster remarkable user experiences. As an adaptable and reliable team player, I value seamless communication and collaboration. Let's connect and explore how my expertise can empower your business or project! 🚀"
       },
-      "title": "Claudiu C. Bogdan",
-      "aboutMe": "I'm a software designer, founder, and amateur astronaut. I'm currently working at <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> as a Senior Software Developer, Software Architect, and Team Lead. I'm also the founder of <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a> and <a href=\"https://www.3pillarglobal.com/\">3Pillar Global</a>."
+      "title": "Empowering Digital Transformation with Cutting-Edge Software Solutions",
+      "aboutMe": [
+        "Welcome aboard! I'm Claudiu, and I'm stoked you're here. Need a hand with web apps? You're in luck, 'cause that's my jam! With a toolbox stuffed with Node.js and React, I’m your go-to guy for everything web.",
+        "Let's chat features! Once upon a time, I worked with Clinchd and pushed out 20+ features in 9 months. How? Magic? Nah, just good ol' coding skills. I also breathed life into an app that manages waste tax declarations for a whopping 175,000+ households. That's right, helping save the planet one line of code at a time!",
+        "But wait, there's more! Picture this: 100,000 users snagging vouchers for Carrefour's 18th birthday through an app I built. Smooth as butter, even with 10,000+ folks jumping in at the same time. 🎂",
+        "What’s the secret sauce? I love what I do, and I team up like a champ. Communication, collaboration, and high-fives all around – that’s how the magic happens.",
+        "Ready to join forces and make something incredible? Whether it's a mind-blowing web app or tackling problems with style, I'm all in."
+      ]
     },
     "about": {
       "head": {
         "title": "About - Claudiu C. Bogdan",
-        "description": "I'm Claudiu C. Bogdan. I live in New York City, where I design the future."
+        "description": "Meet Claudiu, a Senior Software Engineer with a twist - an aerospace background! Dive into his world of coding, community work, and endless curiosity. Let’s team up for some coding magic and real-world problem-solving!"
       },
-      "title": "I'm Claudiu C. Bogdan. I live in New York City, where I design the future.",
-      "descriptionParagraphs": ["Paragraph 1", "Paragraph 2", "Paragraph 3"]
+      "title": "Hi There! I’m Claudiu, Let's Build Cool Stuff Together!",
+      "descriptionParagraphs": [
+        "Hey! Thanks for stopping by! I’m Claudiu, and I’m a Senior Software Engineer. But guess what? My background is in aerospace engineering! Yeah, that’s right, rockets and stuff. It helped me become awesome at problem-solving. I fell in love with coding, taught myself through YouTube, online courses, and tons of practice, and here I am!",
+        "I kicked off my career at Mind Treat Studios. I started by making Android apps but soon got my hands dirty with web development. React.js and Node.js became my best friends because they’re just so cool and everyone loves them.",
+        "Community work? Oh, yeah! I helped Code for Romania on a project and even built something for a nonprofit that aids emergency services. Plus, I'm always nose-deep in open-source code – it’s like an all-you-can-learn buffet!",
+        "One time, I put on the hat of a tech lead. It was like being a Swiss Army knife in the tech world – I got to play with VR, mobile apps, and web stuff. I believe in learning by doing, kind of like DIY but with codes and algorithms.",
+        "Outside coding, I’m pretty much curious about everything. I mess around with little experiments - electronics, trying to grow stuff (fingers crossed, plants!), and fiddling with my schedule to make the most out of my day.",
+        "What’s my deal? Well, I really value being open, honest, and having a chat that can solve problems. I get a kick out of working with folks who love what they do and want to make a difference, even in small ways. My dream? Using my coding powers for solving real problems and making life a bit easier for everyone.",
+        "So, how about we team up and create something amazing? Drop me a line, and let’s get the ball rolling!"
+      ]
     },
     "projects": {
       "head": {
@@ -112,32 +126,39 @@
   ],
   "workExperiences": [
     {
-      "company": "Planetaria",
-      "title": "CEO",
-      "logo": "planetaria",
-      "start": "2019",
+      "company": "Devostack OU",
+      "title": "Freelancer",
+      "logo": "devostack",
+      "start": "2022",
       "end": "present"
     },
     {
-      "company": "Airbnb",
-      "title": "Product Designer",
-      "logo": "airbnb",
-      "start": "2014",
-      "end": "2019"
+      "company": "Clinchd",
+      "title": "Senior Software Developer",
+      "logo": "clinchd",
+      "start": "2021",
+      "end": "2022"
     },
     {
-      "company": "Facebook",
-      "title": "iOS Software Engineer",
-      "logo": "facebook",
-      "start": "2011",
-      "end": "2014"
+      "company": "Persidius Systems",
+      "title": "Senior Software Developer",
+      "logo": "persidius",
+      "start": "2020",
+      "end": "2021"
     },
     {
-      "company": "Starbucks",
-      "title": "Shift Supervisor",
-      "logo": "starbucks",
-      "start": "2008",
-      "end": "2011"
+      "company": "Mind Treat Studios",
+      "title": "Senior Software Developer",
+      "logo": "mts",
+      "start": "2018",
+      "end": "2020"
+    },
+    {
+      "company": "Freelancer",
+      "title": "Android Developer",
+      "logo": "freelance",
+      "start": "2016",
+      "end": "2018"
     }
   ],
   "projects": [
@@ -173,7 +194,7 @@
     }
   ],
   "resume": {
-    "link": "/resume.pdf",
+    "link": "/assets/documents/resume_claudiu_constantin_bogdan.pdf",
     "label": "Download CV"
   }
 }
