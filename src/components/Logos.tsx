@@ -1,11 +1,14 @@
-import logoAirbnb from "@/images/logos/airbnb.svg"
-import logoFacebook from "@/images/logos/facebook.svg"
-import logoPlanetaria from "@/images/logos/planetaria.svg"
-import logoStarbucks from "@/images/logos/starbucks.svg"
+import { StaticImageData } from "next/image"
+import logoClinchd from "@/images/logos/clinchd.jpeg"
+import logoDevostack from "@/images/logos/devostack.png"
+import logoFreelance from "@/images/logos/freelance.png"
+import logoMTS from "@/images/logos/mts.jpeg"
+import logoPersidius from "@/images/logos/persidius.svg"
 
-export const LogoMapper: Record<string, string> = {
-  airbnb: logoAirbnb,
-  facebook: logoFacebook,
-  planetaria: logoPlanetaria,
-  starbucks: logoStarbucks,
+export const LogoMapper: Record<string, string | StaticImageData> = {
+  devostack: logoDevostack,
+  clinchd: logoClinchd,
+  persidius: logoPersidius,
+  mts: logoMTS,
+  freelance: logoFreelance,
 }

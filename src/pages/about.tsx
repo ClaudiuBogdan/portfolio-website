@@ -5,7 +5,7 @@ import Link from "next/link"
 
 import { Container } from "@/components/Container"
 import { mapSocialLinkToIcon } from "@/components/SocialIcons"
-import portraitImage from "@/images/portrait.jpg"
+import portraitImage from "@/images/portrait.png"
 import en from "@/locales/en.json"
 
 const text = en.pages.about
