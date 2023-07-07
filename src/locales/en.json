@@ -33,25 +33,67 @@
     "projects": {
       "head": {
         "title": "Projects - Claudiu C. Bogdan",
-        "description": "Things I've made trying to put my dent in the universe."
+        "description": "Explore Claudiu's captivating coding portfolio, featuring an array of web and mobile projects. Discover how Node.js, React, and a zest for problem-solving fuel these innovative, impactful creations."
       },
-      "title": "Things I've made trying to put my dent in the universe.",
-      "intro": "I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      "title": "Showcase Central: My Projects in the Spotlight 🎬",
+      "intro": "Welcome to the epicenter of my creative coding escapades! On this page, you’ll find a curated selection of projects that highlight my knack for web and mobile development. From accelerating feature development at Clinchd, to streamlining waste management for a whopping 175,000 households with Persidius Systems, and even rolling out a snazzy voucher app for Carrefour’s 18th bash - this is where my coding muscles flex. 🏋️‍♂️ We've got Node.js, React, databases, and even a sprinkle of open-source contributions. If you’re curious about how I solve problems, lead teams, and put my diverse tech stack to good use, you're in the right place. This treasure trove showcases the code that’s made a difference. So, go ahead, and feast your eyes on the coding goodness! 🎉"
     },
     "uses": {
       "head": {
         "title": "Uses - Claudiu C. Bogdan",
         "description": "Software I use, gadgets I love, and other things I recommend."
       },
-      "title": "Software I use, gadgets I love, and other things I recommend.",
-      "intro": "I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I'm being productive when I'm really just procrastinating. Here's a big list of all of my favorite stuff.",
+      "title": "Coder's Toolkit: My Productivity Power-Ups 🛠️",
+      "intro": "Welcome to my treasure chest of productivity hacks! 🏴‍☠️ Whether you're a coding novice or a seasoned software engineer, this page is your golden ticket to ramping up your game. Here’s where I spill the beans on my workstation setup (yeah, the one where all the coding magic happens), the software that’s like my coding wand, and the study techniques that keep my brain as sharp as a ninja’s blade. From battling bugs to brainstorming features, these tips and tricks are the allies I count on. So grab a cup of coffee, and let’s turbocharge that productivity! 🚀",
       "tools": [
         {
           "category": "Workstation",
           "items": [
             {
-              "title": "16” MacBook Pro, M1 Max, 64GB RAM (2021)",
-              "description": "I was using an Intel-based 16” MacBook Pro prior to this and the difference is night and day. I’ve never heard the fans turn on a single time, even under the incredibly heavy loads I put it through with our various launch simulations."
+              "title": "14” MacBook Pro, M1 Pro, 16GB RAM (2021)",
+              "description": "Meet my trusty sidekick - this 14-inch MacBook Pro! 🚀 Lightweight enough to travel with me on adventures, and powerful enough to handle any coding challenge I throw at it. It's got a crisp display, and the battery just keeps going. Plus, who needs a clunky external keyboard when the built-in one feels like typing on a cloud?"
+            },
+            {
+              "title": "MONITOR 24” Samsung LC24F396FHRXEN",
+              "description": "My eyes are my treasure, and this single, eco-friendly monitor is like a spa day for them! 👀 The screen is a gem, and even after a full day’s work, my eyes are as fresh as daisies. Its curve is like a hug for my field of view (just don’t ask it to edit photos!)."
+            },
+            {
+              "title": "Standing Desk",
+              "description": "This standing desk is like a yoga class for my back. 🧘 With its adjustable heights, it’s got my back whether I’m brainstorming on my feet or coding while seated. It's mostly chairs and keyboards, but when I need some good thinking time, you’ll see me on my feet."
+            },
+            {
+              "title": "Fitness SWISS Gym ball",
+              "description": "Call me crazy, but this gym ball is my throne! 🤴 It's like a fitness trainer and a chair in one. My back's never been happier, and my core muscles thank me. Plus, who doesn’t love a little bounce now and then to shake things up?"
+            }
+          ]
+        },
+        {
+          "category": "Development Tools",
+          "items": [
+            {
+              "title": "Visual Studio Code",
+              "description": "Visual Studio Code is like a swiss army knife of coding. 🗡️ It's free and loaded with cool plugins. My favs? Github Copilot, TODOs, and Bookmarks. If you haven’t tried it, you’re missing out!"
+            },
+            {
+              "title": "Git Kraken",
+              "description": "Imagine a time machine for your code – that’s Git Kraken for you! 🕓 It's a visual git client that lets me zip through my project history. I use the pro version, but there’s a free one too. For simpler projects, VSCode has this neat extension called Git Graph."
+            }
+          ]
+        },
+        {
+          "category": "Productivity",
+          "items": [
+            {
+              "title": "ChatGPT",
+              "description": "ChatGPT is like having a genius friend on speed dial. 🧠 It helps me with everything – from double-checking my texts to brainstorming and learning new stuff. The plus version is like strapping a rocket to that genius friend. Give it a whirl!"
+            },
+            {
+              "title": "Notion",
+              "description": "Notion is like having a magic notebook. 📒 I can dump my brain into it, and it organizes everything for me. It’s smooth, sleek, and makes note-taking feel like a breeze. The integrations are endless - you can even run a whole project from it!"
+            },
+            {
+              "title": "Grammarly",
+              "description": "Grammarly is like my trusty proofreading pal. 🎓 It keeps my texts neat and my grammar on point. It’s a lifesaver for professional emails. Though, lately, ChatGPT is becoming my go-to grammar buddy."
             }
           ]
         }
@@ -163,34 +205,52 @@
   ],
   "projects": [
     {
-      "name": "Planetaria",
-      "description": "Creating technology to empower civilians to explore space on their own terms.",
-      "link": { "href": "http://planetaria.tech", "label": "planetaria.tech" },
-      "logo": "logoPlanetaria"
+      "name": "Clinchd - Sales Pipeline",
+      "description": "At Clinchd, I turned the feature development speed up to 11, churning out 20+ new features in just 9 months. One of the cool things I created was a payment service using Stripe, making it a breeze for customers to handle subscriptions. Plus, a nifty filtering module that was 10 times faster than before. It wasn’t just fast; it also made the code way tidier! 🚀",
+      "link": { "href": "https://www.clinchd.com", "label": "clinchd.com" },
+      "logo": "clinchd"
     },
     {
-      "name": "Animaginary",
-      "description": "High performance web animation library, hand-written in optimized WASM.",
-      "link": { "href": "#", "label": "github.com" },
-      "logo": "logoAnimaginary"
+      "name": "Persidius Systems - Waste Management App",
+      "description": "Imagine making a green impact for over 175,000 households! That’s what I did with Persidius Systems. This app lets local administrations in Romania manage waste tax declarations and keep tabs on waste generation. I also cooked up a real-time tracking system for garbage trucks, and a map with a million markers showing waste bin statuses. Talk about an eco-warrior’s toolkit! 🌍",
+      "link": { "href": "https://persidius.ro/", "label": "persidius.ro" },
+      "logo": "persidius"
     },
     {
-      "name": "HelioStream",
-      "description": "Real-time video streaming library, optimized for interstellar transmission.",
-      "link": { "href": "#", "label": "github.com" },
-      "logo": "logoHelioStream"
+      "name": "Carrefour - 18th Anniversary Voucher App",
+      "description": "Party time! For Carrefour’s 18th birthday, I built an app that made 100,000 shoppers feel like VIPs. This app managed and distributed vouchers, and it was so slick, it could handle 10,000+ people at the same time without breaking a sweat. Balloons and confetti for everyone! 🎉",
+      "link": {
+        "href": "/assets/documents/carrefour_18.pdf",
+        "label": "case-study.pdf"
+      },
+      "logo": "carrefour"
     },
     {
-      "name": "cosmOS",
-      "description": "The operating system that powers our Planetaria space shuttles.",
-      "link": { "href": "#", "label": "github.com" },
-      "logo": "logoCosmos"
+      "name": "Code for Romania - De Urgenta Android Components ",
+      "description": " I’m all about giving back, and with Code for Romania, I helped build components for the De Urgenta Android app using Kotlin. This app is a real helper in emergencies and feels good to know my code is out there making a difference when it matters most. 🚑",
+      "link": {
+        "href": "https://github.com/code4romania/de-urgenta-android",
+        "label": "github.com"
+      },
+      "logo": "c4r"
     },
     {
-      "name": "OpenShuttle",
-      "description": "The schematics for the first rocket I designed that successfully made it to orbit.",
-      "link": { "href": "#", "label": "github.com" },
-      "logo": "logoOpenShuttle"
+      "name": "Fundatia Pentru SMURD - Open-Source Project",
+      "description": "More coding for a cause! I developed an open-source project for Fundatia Pentru SMURD, a non-profit that’s all about emergency responses in Romania. It’s coding meets real-world heroics, and I couldn’t be prouder of how tech can help save the day. 🦸‍♂️",
+      "link": {
+        "href": "https://github.com/ClaudiuBogdan/avss-simposiom-subscription",
+        "label": "github.com"
+      },
+      "logo": "smurd"
+    },
+    {
+      "name": "Mind Treat Studios - Project Collection",
+      "description": "At Mind Treat Studios, I was like a kid in a coding candy store! I developed and managed over 7 projects for some really big names like Coca-Cola. I even got to be a tech lead, dabbling in VR, web, and mobile. It was like a coding playground, and boy, did I have fun on those swings! 🎢",
+      "link": {
+        "href": "https://mindtreatstudios.com/",
+        "label": "mindtreatstudios.com"
+      },
+      "logo": "mts"
     }
   ],
   "resume": {

@@ -2,12 +2,8 @@ import Head from "next/head"
 import Image from "next/image"
 
 import { Card } from "@/components/Card"
+import { mapLogo } from "@/components/Logos"
 import { SimpleLayout } from "@/components/SimpleLayout"
-import LogoAnimaginary from "@/images/logos/animaginary.svg"
-import LogoCosmos from "@/images/logos/cosmos.svg"
-import LogoHelioStream from "@/images/logos/helio-stream.svg"
-import LogoOpenShuttle from "@/images/logos/open-shuttle.svg"
-import LogoPlanetaria from "@/images/logos/planetaria.svg"
 import en from "@/locales/en.json"
 
 const projects = en.projects
@@ -22,21 +18,6 @@ function LinkIcon(props: React.ComponentProps<"svg">) {
       />
     </svg>
   )
-}
-
-const mapProjectToLogo = (logoName: string): string => {
-  const LogoMapper: Record<string, string> = {
-    logoAnimaginary: LogoAnimaginary,
-    logoCosmos: LogoCosmos,
-    logoHelioStream: LogoHelioStream,
-    logoOpenShuttle: LogoOpenShuttle,
-    logoPlanetaria: LogoPlanetaria,
-  }
-  const logo = LogoMapper[logoName]
-
-  if (!logo) throw new Error(`No logo for logoName: ${logoName}`)
-
-  return logo
 }
 
 export default function Projects() {
@@ -55,7 +36,7 @@ export default function Projects() {
             <Card as="li" key={project.name}>
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                 <Image
-                  src={mapProjectToLogo(project.logo)}
+                  src={mapLogo(project.logo)}
                   alt={project.logo}
                   className="h-8 w-8"
                   unoptimized
