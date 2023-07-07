@@ -4,7 +4,7 @@ import { Button } from "@/components/Button"
 import { ArrowDownIcon } from "@/components/Icons/ArrowDownIcon"
 import { BriefcaseIcon } from "@/components/Icons/BriefcaseIcon"
 import en from "@/locales/en.json"
-import { LogoMapper } from "./Logos"
+import { mapLogo } from "./Logos"
 
 type Role = {
   company: string
@@ -36,10 +36,6 @@ function getDateTime(date: string) {
 
 function getRoleUniqueKey(role: Role) {
   return `${role.company}-${role.title}-${role.start}-${role.end}`
-}
-
-function mapLogo(logo: string) {
-  return LogoMapper[logo]
 }
 
 export function Resume() {
