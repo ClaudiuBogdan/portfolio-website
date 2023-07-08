@@ -52,7 +52,7 @@ export function Newsletter() {
         <MailIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">{text.title}</span>
       </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-200">
         {text.description}
       </p>
       <div className="mt-6 flex">
