@@ -62,7 +62,7 @@ export function Resume() {
                 {role.company}
               </dd>
               <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+              <dd className="text-xs text-zinc-500 dark:text-zinc-200">
                 {role.title}
               </dd>
               <dt className="sr-only">Date</dt>
