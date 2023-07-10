@@ -5,6 +5,7 @@ import { FC } from "react"
 import { Container } from "@/components/Container"
 import { Prose } from "@/components/Prose"
 import { formatDate } from "@/lib/formatDate"
+import { Tag, Tags } from "./Tags"
 
 type ArticleLayoutProps = {
   meta: {
@@ -15,6 +16,7 @@ type ArticleLayoutProps = {
   isRssFeed?: boolean
   previousPathname?: string
   children: React.ReactNode
+  tags?: string[]
 }
 
 type ArrowLeftIconProps = {
@@ -39,11 +41,19 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
   meta,
   isRssFeed = false,
   previousPathname,
+  tags = [],
 }) => {
   const router = useRouter()
 
   if (isRssFeed) {
     return children
+  }
+
+  const uniqueTags = [...new Set(tags)]
+
+  const handleTagClicked = async (tagId: string) => {
+    const urlEncodedTagId = encodeURIComponent(tagId)
+    await router.push(`/articles?tags=${urlEncodedTagId}`)
   }
 
   return (
@@ -79,6 +89,7 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
                 </time>
               </header>
               <Prose className="mt-8">{children}</Prose>
+              <Tags tags={uniqueTags} onTagClick={handleTagClicked} />
             </article>
           </div>
         </div>
