@@ -141,7 +141,9 @@ export async function getStaticProps() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ({ component, ...meta }) => meta
   )
-  const tags = articles.flatMap((article) => article.tags ?? [])
+  const allTags = articles.flatMap((article) => article.tags ?? [])
+  const tags = [...new Set(allTags)] // Remove duplicates
+
   return {
     props: {
       articles,
