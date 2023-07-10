@@ -52,7 +52,7 @@ export const Tags: FC<{
   if (tags.length === 0) return null
 
   return (
-    <div className={clsx("flex flex-wrap space-x-3", className)}>
+    <div className={clsx("flex flex-wrap gap-x-3 gap-y-3", className)}>
       {tags.map((tag) => (
         <Tag
           key={tag.label}
