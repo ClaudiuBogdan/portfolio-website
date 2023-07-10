@@ -12,6 +12,7 @@ type ArticleLayoutProps = {
     title: string
     description: string
     date: string
+    tags?: string[]
   }
   isRssFeed?: boolean
   previousPathname?: string
@@ -41,7 +42,6 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
   meta,
   isRssFeed = false,
   previousPathname,
-  tags = [],
 }) => {
   const router = useRouter()
 
@@ -49,7 +49,10 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
     return children
   }
 
-  const uniqueTags = [...new Set(tags)]
+  const uniqueTags = [...new Set(meta.tags ?? [])].map((tagLabel) => ({
+    label: tagLabel,
+    active: false,
+  }))
 
   const handleTagClicked = async (tagId: string) => {
     const urlEncodedTagId = encodeURIComponent(tagId)
