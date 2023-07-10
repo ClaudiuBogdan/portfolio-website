@@ -46,12 +46,13 @@ export const Tag: FC<TagProps> = ({
 
 export const Tags: FC<{
   tags: Tag[]
+  className?: string
   onTagClick?: (tagId: string) => void
-}> = ({ tags, onTagClick }) => {
+}> = ({ tags, className, onTagClick }) => {
   if (tags.length === 0) return null
 
   return (
-    <div className="flex flex-wrap space-x-3">
+    <div className={clsx("flex flex-wrap space-x-3", className)}>
       {tags.map((tag) => (
         <Tag
           key={tag.label}
