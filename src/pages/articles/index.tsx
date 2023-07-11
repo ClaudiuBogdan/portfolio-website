@@ -12,6 +12,9 @@ import { TArticle } from "@/components/Article/utils/types"
 import { SimpleLayout } from "@/components/SimpleLayout"
 import { Tags } from "@/components/Tags"
 import { getAllArticles } from "@/lib/getAllArticles"
+import en from "@/locales/en.json"
+
+const text = en.pages.articles
 
 export default function ArticlesIndex({
   articles: rawArticles,
@@ -36,16 +39,10 @@ export default function ArticlesIndex({
   return (
     <>
       <Head>
-        <title>Articles - Claudiu C. Bogdan</title>
-        <meta
-          name="description"
-          content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
-        />
+        <title>{text.head.title}</title>
+        <meta name="description" content={text.head.description} />
       </Head>
-      <SimpleLayout
-        title="Writing on software design, company building, and the aerospace industry."
-        intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
-      >
+      <SimpleLayout title={text.title} intro={text.intro}>
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
             {articles.map((article) => (
