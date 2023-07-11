@@ -1,98 +1,17 @@
 import Head from "next/head"
 
 import { useRouter } from "next/router"
-import { Card } from "@/components/Card"
+import { Article } from "@/components/Article/Article"
+import { getTagsFromQuery, toggleTags } from "@/components/Article/utils"
+import { CLEAR_ALL_TAG } from "@/components/Article/utils/constants"
+import {
+  useArticleFilter,
+  useQueryTags,
+} from "@/components/Article/utils/hooks"
+import { TArticle } from "@/components/Article/utils/types"
 import { SimpleLayout } from "@/components/SimpleLayout"
 import { Tags } from "@/components/Tags"
-import { formatDate } from "@/lib/formatDate"
 import { getAllArticles } from "@/lib/getAllArticles"
-
-type TArticle = {
-  title: string
-  description: string
-  date: string
-  slug: string
-  tags?: string[]
-}
-
-type ArticleProps = {
-  article: TArticle
-}
-
-type Tag = {
-  label: string
-  active: boolean
-}
-
-const CLEAR_ALL_TAG = Object.freeze({ label: "Clear all", active: false })
-
-const getTagsFromQuery = (
-  queryTags: string | string[] | undefined
-): string[] | null => {
-  if (!queryTags) return null
-
-  if (typeof queryTags === "string") return [queryTags]
-
-  return queryTags
-}
-
-const useQueryTags = (tags: string[]): Tag[] => {
-  const router = useRouter()
-
-  const queryTags = getTagsFromQuery(router.query.tags)
-
-  if (!queryTags) return tags.map((tag) => ({ label: tag, active: false }))
-
-  const tagsWithFlags = tags.map((tag) => ({
-    label: tag,
-    active: queryTags.includes(tag),
-  }))
-
-  const hasActiveTags = tagsWithFlags.some((tag) => tag.active)
-  if (hasActiveTags) tagsWithFlags.push(CLEAR_ALL_TAG)
-
-  return tagsWithFlags
-}
-
-const useArticleFilter = (rawArticles: TArticle[], tags: Tag[]): TArticle[] => {
-  const activeTags = tags.filter((tag) => tag.active).map((tag) => tag.label)
-
-  if (activeTags.length === 0) return rawArticles
-
-  // Filter articles by tag
-  return rawArticles.filter((article) =>
-    article.tags?.some((articleTag) => activeTags.includes(articleTag))
-  )
-}
-
-function Article({ article }: ArticleProps) {
-  return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
-      <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
-          {article.title}
-        </Card.Title>
-        <Card.Eyebrow
-          as="time"
-          dateTime={article.date}
-          className="md:hidden"
-          decorate
-        >
-          {formatDate(article.date)}
-        </Card.Eyebrow>
-        <Card.Description>{article.description}</Card.Description>
-        <Card.Cta>Read article</Card.Cta>
-      </Card>
-      <Card.Eyebrow
-        as="time"
-        dateTime={article.date}
-        className="mt-1 hidden md:block"
-      >
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-    </article>
-  )
-}
 
 export default function ArticlesIndex({
   articles: rawArticles,
@@ -106,20 +25,8 @@ export default function ArticlesIndex({
   const articles = useArticleFilter(rawArticles, tags)
 
   const handleTagClicked = async (tagId: string) => {
-    // Clear all tags if the user clicks on the "Clear all" tag
-    if (tagId === CLEAR_ALL_TAG.label) {
-      await router.replace({
-        query: { ...router.query, tags: [] },
-      })
-      return
-    }
-
-    // Toggle the tag and leave the rest as they are
-    const tags = getTagsFromQuery(router.query.tags) ?? []
-    const hasTag = tags.includes(tagId)
-    const newTags = hasTag
-      ? tags.filter((tag) => tag !== tagId)
-      : [...tags, tagId]
+    const oldTags = getTagsFromQuery(router.query.tags) ?? []
+    const newTags = toggleTags(oldTags, tagId)
 
     await router.replace({
       query: { ...router.query, tags: newTags },

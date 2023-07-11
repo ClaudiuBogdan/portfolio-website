@@ -5,7 +5,7 @@ import { FC } from "react"
 import { Container } from "@/components/Container"
 import { Prose } from "@/components/Prose"
 import { formatDate } from "@/lib/formatDate"
-import { Tag, Tags } from "./Tags"
+import { Tag, Tags } from "../Tags"
 
 type ArticleLayoutProps = {
   meta: {
