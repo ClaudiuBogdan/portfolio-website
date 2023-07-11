@@ -1,5 +1,5 @@
 import { formatDate } from "@/lib/formatDate"
-import { Card } from "./Card"
+import { Card } from "../Card"
 
 type TArticle = {
   title: string
@@ -13,7 +13,7 @@ type ArticleProps = {
   article: TArticle
 }
 
-export function Article({ article }: ArticleProps) {
+export function ArticleCard({ article }: ArticleProps) {
   return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
