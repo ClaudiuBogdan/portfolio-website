@@ -30,6 +30,14 @@
         "So, how about we team up and create something amazing? Drop me a line, and let’s get the ball rolling!"
       ]
     },
+    "articles": {
+      "head": {
+        "title": "Articles - Claudiu C. Bogdan",
+        "description": "Dive into Claudiu's world of coding, community work, and endless curiosity. Let’s team up for some coding magic and real-world problem-solving!"
+      },
+      "title": "Writing on software design, company building, and the aerospace industry.",
+      "intro": "All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+    },
     "projects": {
       "head": {
         "title": "Projects - Claudiu C. Bogdan",
