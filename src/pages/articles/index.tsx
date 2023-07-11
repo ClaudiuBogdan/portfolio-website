@@ -24,6 +24,8 @@ type Tag = {
   active: boolean
 }
 
+const CLEAR_ALL_TAG = Object.freeze({ label: "Clear all", active: false })
+
 const getTagsFromQuery = (
   queryTags: string | string[] | undefined
 ): string[] | null => {
@@ -41,10 +43,15 @@ const useQueryTags = (tags: string[]): Tag[] => {
 
   if (!queryTags) return tags.map((tag) => ({ label: tag, active: false }))
 
-  return tags.map((tag) => ({
+  const tagsWithFlags = tags.map((tag) => ({
     label: tag,
     active: queryTags.includes(tag),
   }))
+
+  const hasActiveTags = tagsWithFlags.some((tag) => tag.active)
+  if (hasActiveTags) tagsWithFlags.push(CLEAR_ALL_TAG)
+
+  return tagsWithFlags
 }
 
 const useArticleFilter = (rawArticles: TArticle[], tags: Tag[]): TArticle[] => {
@@ -99,6 +106,15 @@ export default function ArticlesIndex({
   const articles = useArticleFilter(rawArticles, tags)
 
   const handleTagClicked = async (tagId: string) => {
+    // Clear all tags if the user clicks on the "Clear all" tag
+    if (tagId === CLEAR_ALL_TAG.label) {
+      await router.replace({
+        query: { ...router.query, tags: [] },
+      })
+      return
+    }
+
+    // Toggle the tag and leave the rest as they are
     const tags = getTagsFromQuery(router.query.tags) ?? []
     const hasTag = tags.includes(tagId)
     const newTags = hasTag
