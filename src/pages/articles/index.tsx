@@ -3,7 +3,6 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { Article } from "@/components/Article/Article"
 import { getTagsFromQuery, toggleTags } from "@/components/Article/utils"
-import { CLEAR_ALL_TAG } from "@/components/Article/utils/constants"
 import {
   useArticleFilter,
   useQueryTags,
