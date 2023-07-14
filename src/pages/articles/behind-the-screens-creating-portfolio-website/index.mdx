@@ -1,0 +1,151 @@
+import { ArticleLayout } from "@/components/Article"
+import Image from "next/image"
+import IntroImage from "./portfolio-intro-image.png"
+import TechStackImage from "./portfolio-tech-stack-image.png"
+import DeploymentPipelineImage from "./portfolio-deployment-pipeline-image.png"
+import PortfolioWritingImage from "./portfolio-writing-image.png"
+import RobotPainterImage from "./portfolio-robot-painter-image.png"
+
+export const meta = {
+  author: "Claudiu C. Bogdan ",
+  date: "2023-07-14",
+  title:
+    "Behind the Screens: Creating a Portfolio Website as a Software Developer",
+  description:
+    "Discover the process of creating a standout portfolio website as a software developer. Dive into our journey of choosing a tech stack, deployment strategies, content creation, and image generation, all while utilizing AI tools and web development best practices. Get ready to embark on a step-by-step guide that could inspire you to build a digital space to highlight your own skills and accomplishments.",
+  tags: ["portfolio", "website", "design", "tech stack"],
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={IntroImage} alt="Intro Image" width={800} height={400} />
+
+In the digital era, carving out a strong online presence can be the defining factor in your career, particularly for software developers. Among various tools at your disposal, one that shines is the portfolio website. But the question stands - should you jump in and create one right away?
+
+Portfolio websites pack quite a punch. They're your personal spotlight on the web, showcasing your skills, past projects, and unique style. They confirm your commitment, provide worldwide exposure, and give you control over your personal brand. Yet, they come with their own challenges – they require time for creation and maintenance, might present unexpected technical hurdles, and may be a strain on your budget. Plus, you can't overlook the need for strong cyber security.
+
+But building a website doesn't have to be intimidating. There are alternatives like GitHub, LinkedIn, Medium, and StackOverflow. These platforms offer unique ways to highlight your skills, from exhibiting your coding finesse to sharing your insights on the latest tech trends.
+
+If you're already sold on the idea of a portfolio website, then you've landed in the right place! Let's dive into how I crafted my own site using the formidable blend of Next.js, GitHub, Vercel, and Tailwind UI. We're about to embark on an exhilarating journey together, creating a digital space that truly encapsulates your unique skills and accomplishments as a software developer. Ready? Let's buckle up and get started!
+
+## Selecting the Right Tech Stack
+
+<Image src={TechStackImage} alt="Tech stack image" width={800} height={400} />
+
+When building my website, I aimed for a quick yet stable platform that effectively highlighted my skills and personality. This wasn't my first website project, so I had a clear picture of what I wanted and the costs involved. I focused on a few key factors:
+
+1. The website should load quickly for a great user experience, suggesting the need for a statically generated site. Fast loading speeds also benefit SEO and other critical website metrics.
+2. The site's design should be simple and appealing, importantly reflecting my personal and professional journey.
+3. As I didn't want to spend excessive time on design and development, I looked for existing solutions I could modify to suit my needs.
+
+Having worked with Next.js before, I chose it as the framework for my site. To speed up the design process, I used Tailwind UI, which offers reusable components for building websites. I selected a template from their site, even though it required some additional steps, like migrating the project from jsx to tsx to use Typescript.
+
+## Deploying the Website
+
+<Image
+  src={DeploymentPipelineImage}
+  alt="Deployment pipeline image"
+  width={800}
+  height={400}
+/>
+
+Hosting and deploying my site involved using GitHub Actions and Vercel, both of which offer excellent services for open-source projects. I'm particularly fond of Vercel for its sleek dashboard, variety of features, and ease of use.
+
+I established the following deployment flow for my site:
+
+- First, I secured the main branch to prevent direct pushes to the main origin. This step maintains a releasable state in the main branch, meaning all tests should pass, including building, linting, and testing.
+- Next, I set up parallel jobs for building and e2e testing to decrease execution time.
+
+Moreover, Vercel deploys a preview version as part of the PR process for additional verification.
+
+Once all the checks are successful, the PR can be rebased into the main branch.
+
+This process highlights the importance of a smooth deployment pipeline. Using the right tools and adopting robust practices can streamline your website deployment and ensure its robust performance.
+
+## Writing the Content for My Portfolio Website
+
+<Image
+  src={PortfolioWritingImage}
+  alt="Portfolio writing image"
+  width={800}
+  height={400}
+/>
+
+Content creation was indeed a challenging part. While my up-to-date resume provided a professional overview, I wanted to infuse my website with a touch of personal flair. To accomplish this, I utilized ChatGPT.
+
+Initially, I prompted ChatGPT to generate a series of questions that would allow me to represent my professional achievements and personal characteristics. Some of the key questions were:
+
+```
+ChatGPT
+
+Before writing the title and description for the "About" page, I'd like to ask a few questions that will help in creating a more personal and engaging description:
+
+1. Can you tell me about your educational background and how it influenced your career as a Senior Software Engineer?
+2. What motivated you to specialize in Node.js and React?
+3. Have you been involved in any community or mentoring activities, such as open-source contributions, workshops, or coding boot camps?
+4. Can you share any career-defining moments or challenges that shaped who you are as a professional today?
+5. What are some hobbies or interests outside of software engineering that you are passionate about?
+6. What is your personal philosophy or mission statement when it comes to software development and collaboration?
+
+With the answers to these questions, I'll be able to craft a more personal and engaging description for your "About" page.
+```
+
+Reflecting on these questions, I managed to paint a holistic picture of my professional journey and personal interests. This approach significantly enriched the content on my homepage and about page, offering visitors a glimpse into who I am and what I do.
+
+## Generating Personalized Images
+
+<Image
+  src={RobotPainterImage}
+  alt="Robot painter image"
+  width={800}
+  height={400}
+/>
+
+In addition to text, I wanted my website to feature personalized images that could help visitors visualize my hobbies, personality, values, and aspirations. To achieve this, I turned to Midjurney, a platform I was using for the first time.
+
+Learning to use Midjurney was straightforward thanks to their intuitive Discord bot. The bot allowed me to adjust the settings and generate images using prompts. The prompts enabled me to create highly personalized images that not only looked stunning but also resonated with my website's style.
+
+Here are a few prompts I used:
+
+- **Space Coder’s Paradise: Create an ultra-modern space-themed coder's den. There should be floating holographic code snippets, a levitating ergonomic chair, and multiple transparent screens with React.js and Node.js codes running. A sleek rocket model, reminiscent of aerospace engineering, should be perched on a shelf along with various space gadgets. Behind Claudiu, who is intently coding, the Earth can be seen through a large spaceship window.**
+- **Picture a cozy forest campsite under a starlit sky. Claudiu is sitting on a log by a warm campfire, surrounded by friendly woodland creatures who are eagerly watching as he codes on an old wooden laptop. The laptop's screen emits a soft, magical glow, casting light on a banner above them that reads “Code for Nature”. The scene should invoke a sense of warmth, community, and connection with nature.**
+- **The Code Gardener's Greenhouse: Picture Claudiu in a vibrant greenhouse filled with exotic plants. But these aren't ordinary plants; they're shaped like coding symbols and icons. Claudiu, wearing a gardener’s hat and overalls, is nurturing a particular plant that has React.js and Node.js leaves. A friendly robot assistant helps him in the greenhouse. This scene should radiate a sense of growth, care, and wonder.**
+
+The use of AI-generated images not only added an aesthetic appeal to the site but also conveyed my personal story in a unique and engaging way.
+
+## Conclusion
+
+Building a portfolio website can seem like a daunting task, but the rewards, both personal and professional, make it a valuable investment. Here are some takeaways from my experience:
+
+- Using existing solutions, like the source code of my website, can greatly simplify the process and save time.
+- Patience and perseverance are key. Developing my portfolio required substantial effort, but the end result was undoubtedly worth it.
+- AI tools, such as ChatGPT and Midjurney, can be tremendously helpful. They assisted me in crafting engaging text and generating personalized images for my website.
+- Leveraging a template, like the one I used from Tailwind UI, can expedite the design process, allowing you to focus more on content creation.
+- Platforms like Github Actions and Vercel are instrumental for a seamless and cost-effective deployment process.
+
+By sharing this journey, I hope to encourage others to take the leap and create their portfolio websites. It's an opportunity to showcase your skills, experience, and personality on a global platform while gaining invaluable experience in web development.
+
+The process, although challenging at times, enhances your understanding of various tools, platforms, and techniques, enriching your software development skills. Ultimately, a personal portfolio website is more than just a professional platform; it's a testament to your growth and achievements as a software developer.
+
+## References
+
+- [Source code](https://github.com/ClaudiuBogdan/portfolio-website)
+- [Next.js](https://nextjs.org/)
+- [Vercel](https://vercel.com/)
+- [Tailwind UI](https://tailwindui.com/)
+- [ChatGPT](https://chat.openai.com/)
+- [Midjurney](https://www.midjourney.com/)
+- [GitHub Actions](https://docs.github.com/en/actions)
+
+## Disclaimer
+
+<a name="disclaimer-text">*</a> This article was developed in collaboration with
+ChatGPT, an AI language model by OpenAI. While the AI assisted in generating content,
+all ideas and revisions were conducted by the author to ensure the information accurately
+reflects their personal perspective
+
+<a name="disclaimer-images">**</a> Please note that the images showcased in this
+article were created using Midjurney, an AI-powered tool for image generation. While
+the AI assists in the creative process, the final selection and placement of images
+were carried out by the author to ensure the visuals effectively represent the content's
+context and mood.
