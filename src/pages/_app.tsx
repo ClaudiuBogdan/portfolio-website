@@ -1,23 +1,13 @@
 import { Analytics } from "@vercel/analytics/react"
 import { AppProps } from "next/app"
-import { useEffect, useRef } from "react"
 
 import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
 
 import "@/styles/globals.css"
 import "focus-visible"
+import { usePrevious } from "@/lib/hooks"
 import { NotificationProvider } from "@/modules/notifications"
-
-function usePrevious<T = unknown>(value: T) {
-  const ref = useRef<T>()
-
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-
-  return ref.current
-}
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const previousPathname = usePrevious<string>(router.pathname)
