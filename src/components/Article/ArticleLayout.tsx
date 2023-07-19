@@ -1,3 +1,5 @@
+import { MDXProvider } from "@mdx-js/react"
+import { Components } from "@mdx-js/react/lib"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { FC } from "react"
@@ -5,7 +7,8 @@ import { FC } from "react"
 import { Container } from "@/components/Container"
 import { Prose } from "@/components/Prose"
 import { formatDate } from "@/lib/formatDate"
-import { Tag, Tags } from "../Tags"
+import { ArticleHeader1, ArticleHeader2 } from "./ArticleHeader"
+import { Tags } from "../Tags"
 
 type ArticleLayoutProps = {
   meta: {
@@ -23,6 +26,11 @@ type ArticleLayoutProps = {
 type ArrowLeftIconProps = {
   className?: string
 }
+
+const components = {
+  h1: ArticleHeader1,
+  h2: ArticleHeader2,
+} as unknown as Components // There is a type conflict between MDXProvider and React FC
 
 export const ArrowLeftIcon: FC<ArrowLeftIconProps> = (props) => {
   return (
@@ -60,11 +68,12 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
   }
 
   return (
-    <>
+    <MDXProvider components={components}>
       <Head>
         <title>{`${meta.title} - Claudiu C. Bogdan`}</title>
         <meta name="description" content={meta.description} />
       </Head>
+
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
@@ -97,6 +106,6 @@ export const ArticleLayout: FC<ArticleLayoutProps> = ({
           </div>
         </div>
       </Container>
-    </>
+    </MDXProvider>
   )
 }
