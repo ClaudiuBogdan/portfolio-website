@@ -5,7 +5,7 @@ import { Newsletter } from "@/components/Newsletter"
 import { Photos } from "@/components/Photos"
 import { Resume } from "@/components/Resume"
 import { mapSocialLinkToIcon } from "@/components/SocialIcons"
-import { SocialLink } from "@/components/SocialLink"
+import { SocialLinkIcon } from "@/components/SocialLinkIcon"
 import { generateRssFeed } from "@/lib/generateRssFeed"
 import { getAllArticles } from "@/lib/getAllArticles"
 import en from "@/locales/en.json"
@@ -40,7 +40,7 @@ export default function Home({ articles }: { articles: TArticle[] }) {
           </div>
           <div className="mt-6 flex gap-6">
             {socialLinks.map((socialLink) => (
-              <SocialLink
+              <SocialLinkIcon
                 key={socialLink.name}
                 href={socialLink.href}
                 aria-label={socialLink.label}

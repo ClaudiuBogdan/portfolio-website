@@ -1,42 +1,15 @@
-import clsx from "clsx"
 import Head from "next/head"
 import Image from "next/image"
-import Link from "next/link"
 
 import { Container } from "@/components/Container"
 import { mapSocialLinkToIcon } from "@/components/SocialIcons"
+import { SocialLinkLabel } from "@/components/SocialLinkLabel"
 import portraitImage from "@/images/portrait.png"
 import en from "@/locales/en.json"
 
 const text = en.pages.about
 const socialLinks = en.socialLinks
 const email = en.email
-
-type SocialLinkProps = {
-  className?: string
-  href: string
-  children: React.ReactNode
-  icon: React.ElementType
-}
-
-function SocialLink({
-  className,
-  href,
-  children,
-  icon: Icon,
-}: SocialLinkProps) {
-  return (
-    <li className={clsx(className, "flex")}>
-      <Link
-        href={href}
-        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
-      >
-        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-        <span className="ml-4">{children}</span>
-      </Link>
-    </li>
-  )
-}
 
 export default function About() {
   return (
@@ -70,22 +43,22 @@ export default function About() {
           <div className="lg:pl-20">
             <ul role="list">
               {socialLinks.map((socialLink) => (
-                <SocialLink
+                <SocialLinkLabel
                   key={socialLink.name}
                   href={socialLink.href}
                   icon={mapSocialLinkToIcon(socialLink.icon)}
                   className="mt-4"
                 >
                   {socialLink.label}
-                </SocialLink>
+                </SocialLinkLabel>
               ))}
-              <SocialLink
+              <SocialLinkLabel
                 href={email.href}
                 icon={mapSocialLinkToIcon(email.icon)}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
                 {email.label}
-              </SocialLink>
+              </SocialLinkLabel>
             </ul>
           </div>
         </div>
