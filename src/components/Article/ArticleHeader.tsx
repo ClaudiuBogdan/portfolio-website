@@ -1,4 +1,3 @@
-import { Components } from "@mdx-js/react/lib"
 import Link from "next/link"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
