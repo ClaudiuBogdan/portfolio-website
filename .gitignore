@@ -39,3 +39,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+public/rss/feed.json
+
+public/rss/feed.xml
