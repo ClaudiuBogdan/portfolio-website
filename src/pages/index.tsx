@@ -77,8 +77,7 @@ export async function getStaticProps() {
     props: {
       articles: (await getAllArticles())
         .slice(0, 4)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .map(({ component, ...meta }) => meta),
+        .map(({ component: _, ...meta }) => meta),
     },
   }
 }

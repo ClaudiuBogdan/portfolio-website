@@ -57,8 +57,7 @@ export default function ArticlesIndex({
 
 export async function getStaticProps() {
   const articles = (await getAllArticles()).map(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    ({ component, ...meta }) => meta
+    ({ component: _, ...meta }) => meta
   )
   const allTags = articles.flatMap((article) => article.tags ?? [])
   const tags = [...new Set(allTags)] // Remove duplicates
