@@ -1,42 +1,10 @@
 import Head from "next/head"
 
-import { Card } from "@/components/Card"
-import { Section } from "@/components/Section"
 import { SimpleLayout } from "@/components/SimpleLayout"
+import { Tool, ToolsSection } from "@/components/Tools"
 import en from "@/locales/en.json"
+
 const text = en.pages.uses
-
-type ToolsSectionProps = {
-  children: React.ReactNode
-  title: string
-}
-
-type ToolProps = {
-  title: string
-  href?: string
-  children?: React.ReactNode
-}
-
-function ToolsSection({ children, ...props }: ToolsSectionProps) {
-  return (
-    <Section {...props}>
-      <ul role="list" className="space-y-16">
-        {children}
-      </ul>
-    </Section>
-  )
-}
-
-function Tool({ title, href, children }: ToolProps) {
-  return (
-    <Card as="li">
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
-      <Card.Description>{children}</Card.Description>
-    </Card>
-  )
-}
 
 export default function Uses() {
   return (
