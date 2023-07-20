@@ -21,7 +21,10 @@ export const ArticleHeader = (props: ArticleHeaderProps) => {
         {...rest}
         className="before:text-zinc-400 hover:before:ml-[-1rem] hover:before:inline-block hover:before:w-[1rem] hover:before:content-['#'] before:dark:text-zinc-500"
       >
-        <Link href={`#${id}`} className="text-zinc-800 dark:text-zinc-100">
+        <Link
+          href={`#${id}`}
+          className="text-zinc-800 no-underline hover:underline dark:text-zinc-100"
+        >
           {children}
         </Link>
       </Header>
