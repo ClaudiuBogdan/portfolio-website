@@ -34,6 +34,7 @@ export function Footer() {
                 <NavLink href="/articles">{text.nav.articles}</NavLink>
                 <NavLink href="/projects">{text.nav.projects}</NavLink>
                 <NavLink href="/uses">{text.nav.uses}</NavLink>
+                <NavLink href="/rss/feed.xml">{text.nav.rss}</NavLink>
               </div>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
                 &copy; {new Date().getFullYear()} {text.allRightsReserved}
