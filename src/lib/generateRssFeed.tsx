@@ -16,7 +16,7 @@ export async function generateRssFeed() {
 
   const feed = new Feed({
     title: author.name,
-    description: "Your blog description",
+    description: "Your blog description", // TODO: get from en locales
     author,
     id: siteUrl,
     link: siteUrl,
