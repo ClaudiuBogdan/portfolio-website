@@ -1,29 +1,41 @@
 import Link from "next/link"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { DetailedHTMLProps, HTMLAttributes } from "react"
 
-type ArticleHeaderProps = DetailedHTMLProps<
+type HeaderTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
+
+type HtmlHeadingProps = DetailedHTMLProps<
   HTMLAttributes<HTMLHeadingElement>,
   HTMLHeadingElement
 >
 
-export const ArticleHeader1: FC<ArticleHeaderProps> = ({ id, ...rest }) => {
-  if (id) {
-    return (
-      <Link href={`#${id}`}>
-        <h1 id={id} {...rest} />
-      </Link>
-    )
-  }
-  return <h1 {...rest} />
+type ArticleHeaderProps = HtmlHeadingProps & {
+  as: HeaderTag
 }
 
-export const ArticleHeader2: FC<ArticleHeaderProps> = ({ id, ...rest }) => {
+export const ArticleHeader = (props: ArticleHeaderProps) => {
+  const { id, children, as: Header, ...rest } = props
   if (id) {
     return (
-      <Link href={`#${id}`}>
-        <h2 id={id} {...rest} />
-      </Link>
+      <Header
+        id={id}
+        {...rest}
+        className="before:text-zinc-400 hover:before:ml-[-1rem] hover:before:inline-block hover:before:w-[1rem] hover:before:content-['#'] before:dark:text-zinc-500"
+      >
+        <Link href={`#${id}`} className="text-zinc-800 dark:text-zinc-100">
+          {children}
+        </Link>
+      </Header>
     )
   }
-  return <h2 {...rest} />
+  return <Header {...props} />
+}
+
+export const createArticleHeader = (as: HeaderTag) => {
+  const ArticleHeaderComponent = (props: HtmlHeadingProps) => (
+    <ArticleHeader {...{ ...props, as }} />
+  )
+
+  ArticleHeaderComponent.displayName = `ArticleHeader(${as})`
+
+  return ArticleHeaderComponent
 }

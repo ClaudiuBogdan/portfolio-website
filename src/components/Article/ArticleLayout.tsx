@@ -7,7 +7,7 @@ import { FC } from "react"
 import { Container } from "@/components/Container"
 import { Prose } from "@/components/Prose"
 import { formatDate } from "@/lib/formatDate"
-import { ArticleHeader1, ArticleHeader2 } from "./ArticleHeader"
+import { createArticleHeader } from "./ArticleHeader"
 import { Tags } from "../Tags"
 
 type ArticleLayoutProps = {
@@ -27,10 +27,18 @@ type ArrowLeftIconProps = {
   className?: string
 }
 
-const components = {
-  h1: ArticleHeader1,
-  h2: ArticleHeader2,
-} as unknown as Components // There is a type conflict between MDXProvider and React FC
+const headerTags = ["h1", "h2", "h3", "h4", "h5", "h6"] as const
+const headerComponents = headerTags.reduce(
+  (acc, headerTag) => ({
+    ...acc,
+    [headerTag]: createArticleHeader(headerTag),
+  }),
+  {} as Record<string, ReturnType<typeof createArticleHeader>>
+)
+
+const components: Components = {
+  ...headerComponents,
+}
 
 export const ArrowLeftIcon: FC<ArrowLeftIconProps> = (props) => {
   return (
