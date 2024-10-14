@@ -1,0 +1,139 @@
+import { ArticleLayout } from "@/components/Article"
+import Image from "next/image"
+import AddNewModelImg from "./add-new-model.png"
+import TestModelImg from "./test-model.png"
+import GenerateApiKeyImg from "./generate-api-key.png"
+
+
+export const meta = {
+  author: "Claudiu C. Bogdan ",
+  date: "2024-10-14",
+  title:
+    "Integrating VertexAI with LiteLLM: A Step-by-Step Guide",
+  description:
+    "Learn how to integrate VertexAI into your AI workflow using LiteLLM and Continue.dev. This step-by-step guide covers setup, Google Cloud credentials, model integration, and API key generation, enhancing your development process with seamless access to powerful language models.",
+  tags: ["tutorial", "AI","LiteLLM","Continue.dev"],
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+LiteLLM is a platform designed to facilitate interaction with over 100 large language models (LLMs) using the OpenAI input/output format. It allows users to access LLMs from providers like OpenAI, Anthropic, and Azure through a unified interface. LiteLLM provides a Proxy Server (LLM Gateway) for centralized access and management of multiple LLMs, ideal for teams focused on AI enablement. The platform includes features such as cost tracking, load balancing, and customizable guardrails. Additionally, developers can integrate LiteLLM into their Python projects using the SDK, which supports retry logic and logging, ensuring consistent and effective handling of LLM requests.
+
+Continue.dev is a platform designed to enhance the developer workflow by integrating with popular code editors to provide AI-assisted coding capabilities. It aims to streamline the coding process by offering features such as intelligent code completions, suggestions, and debugging aids, helping developers write code more efficiently and effectively.
+
+## Getting Started with LiteLLM
+
+To quickly set up LiteLLM and start using it locally, follow these steps:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/BerriAI/litellm
+   ```
+
+2. **Navigate to the Directory:**
+   ```bash
+   cd litellm
+   ```
+
+3. **Set Up Environment Variables:**
+   - Create a `.env` file with your master and salt keys.
+   - It's recommended to use a password generator like [1Password](https://1password.com/password-generator/) for the salt key.
+
+   ```bash
+   echo 'LITELLM_MASTER_KEY="sk-1234"' > .env
+   echo 'LITELLM_SALT_KEY="sk-1234"' >> .env
+   source .env
+   ```
+
+4. **Start LiteLLM Using Docker Compose:**
+   ```bash
+   docker-compose up
+   ```
+
+[Official LiteLLM instructions](https://docs.litellm.ai/docs/proxy/deploy)
+
+**Congratulations!** You have successfully set up LiteLLM to deploy and test your local LLM proxy server.
+
+
+## Google Cloud Credentials
+
+- **Create a Service Account:** In the Google Cloud Console, navigate to IAM & Admin > Service Accounts. Create a new service account and grant it the "Vertex AI User" role. This role provides the necessary permissions to interact with Vertex AI.
+    
+- **Generate a Key:** For the service account you created, generate a JSON key and download it to a secure location. This key file contains the credentials that your application will use to authenticate.
+
+
+## Add VertexAI to LiteLLM
+
+<Image
+  src={AddNewModelImg}
+  alt="add new model"
+  placeholder="blur"
+  width={800}
+  height={800}
+/>
+
+Go to Models > Add Model
+
+
+1. **Provider Selection**: 
+   - Choose "Vertex AI (Anthropic, Gemini, etc...)" as the provider from the dropdown menu.
+
+2. **Public Model Name**: 
+   - Enter the appropriate model name offered by Vertex AI (e.g., "claude-3-5-sonnet@20240620").
+
+3. **LiteLLM Model Name(s)**:
+   - Provide a name to identify the model within LiteLLM (e.g., "vertex_ai/claude-3-5-sonnet@20240620").
+
+4. **Vertex Project**:
+   - Input your Vertex project identifier in the "Vertex Project" field (e.g., "my-google-cloud-project-id-1234").
+
+5. **Vertex Location**:
+   - Specify the location of your Vertex AI instance, often a region such as "europe-west1". You can find more locations [here](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/locations#europe_1)
+
+6. **Vertex Credentials**:
+   - Add your Vertex AI credentials in the "Vertex Credentials" field. You can create a service account key in the Google Cloud Console and download the JSON file containing the credentials.
+
+7. **Add Model**:
+   - Once all fields are filled out correctly, click the "Add Model" button.
+
+You can test you model in the /health tab.
+
+<Image
+  src={TestModelImg}
+  alt="test model"
+  placeholder="blur"
+  width={800}
+  height={800}
+/>
+
+
+## Generate an API Key
+
+<Image
+  src={GenerateApiKeyImg}
+  alt="generate api key"
+  placeholder="blur"
+  width={800}
+  height={800}
+/>
+
+Go to Virtual Keys.
+
+Click "+ Create New Key"
+
+Write a name for the key and select the model you want to use.
+
+Create the key and copy it.
+
+## Add LiteLLM to Continue.dev
+
+```json
+    {
+      "title": "Vertex Sonnet 3.5",
+      "model": "claude-3-5-sonnet@20240620",
+      "provider": "openai",
+      "apiBase": "http://localhost:4000/", // or your LiteLLM server
+      "apiKey": "your-api-key",
+    }
+```
