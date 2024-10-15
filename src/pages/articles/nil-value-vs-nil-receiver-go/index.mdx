@@ -88,6 +88,30 @@ func (c Customer) Validate() error {
 }
 ```
 
+```go
+// MultiError is a custom error type that can hold multiple errors
+type MultiError struct {
+	errs []error
+}
+
+// Add appends a new error to the MultiError
+func (m *MultiError) Add(err error) {
+	if err != nil {
+		m.errs = append(m.errs, err)
+	}
+}
+
+// Error returns a string representation of the MultiError. 
+// It implements the error interface.
+func (m *MultiError) Error() string {
+  var msgs []string
+  for _, err := range m.errs {
+    msgs = append(msgs, err.Error())
+  }
+  return strings.Join(msgs, ", ")
+}
+```
+
 Even if no errors occur and `m` remains nil, the returned error interface will not be nil. This is because the interface has a type (*MultiError), despite having a nil value.
 
 To correct this, we should explicitly return nil when there are no errors:
