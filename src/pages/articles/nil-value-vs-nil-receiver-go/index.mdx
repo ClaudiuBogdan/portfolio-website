@@ -1,0 +1,116 @@
+import { ArticleLayout } from "@/components/Article"
+import Image from "next/image"
+import GoNilImg from "./go-nil.png"
+
+export const meta = {
+  author: "Claudiu C. Bogdan ",
+  date: "2024-10-15",
+  title:
+    "What is the difference between a nil receiver and a nil value in Go?",
+  description:
+    "This article provides an explanation of the difference between nil receivers and nil values in Go. It covers the basic concepts, provides code examples, and highlights the implications, particularly in error handling scenarios.",
+  tags: ["go", "nil"],
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+
+Go's approach to nil and method receivers can be a source of confusion for many developers, especially those coming from other programming languages. Understanding the distinction between a nil receiver and a nil value is crucial for writing correct and efficient Go code. Let's dive into these concepts and explore their implications.
+
+<Image
+  src={GoNilImg}
+  alt="go nil"
+  placeholder="blur"
+  width={800}
+  height={800}
+/>
+
+## Understanding nil in Go
+
+In Go, `nil` is the zero value for pointers, interfaces, maps, slices, channels, and function types. It essentially represents "no value" or "empty" for these types. However, the behavior of `nil` can be more nuanced than it first appears, particularly when it comes to interfaces and method receivers.
+
+## Nil Receivers
+
+A nil receiver occurs when you call a method on a pointer type, but the pointer itself is nil. Surprisingly, this is valid in Go and doesn't cause a panic. For example:
+
+```go
+type Foo struct{}
+
+func (f *Foo) Bar() string {
+    return "bar"
+}
+
+func main() {
+    var f *Foo
+    fmt.Println(f.Bar()) // Prints "bar"
+}
+```
+
+In this code, `f` is a nil pointer, yet calling `f.Bar()` is valid and works as expected. This is because Go treats method calls on nil pointers as valid, with the nil pointer passed as the receiver.
+
+## Nil Values and Interfaces
+
+The distinction between nil receivers and nil values becomes crucial when dealing with interfaces. An interface in Go is only considered nil when both its type and value are nil.
+
+Consider this example:
+
+```go
+type MyInterface interface {
+    MyMethod() string
+}
+
+type MyStruct struct{}
+
+func (m *MyStruct) MyMethod() string {
+    return "Hello"
+}
+
+func main() {
+    var s *MyStruct = nil
+    var i MyInterface = s
+    
+    fmt.Println(s == nil)  // true
+    fmt.Println(i == nil)  // false
+}
+```
+
+Here, `s` is a nil pointer to `MyStruct`, but when assigned to the interface `i`, the result is not nil. This is because `i` has a type (*MyStruct), even though its value is nil.
+
+## Implications in Error Handling
+
+This distinction is particularly important in error handling. Consider this common mistake:
+
+```go
+func (c Customer) Validate() error {
+    var m *MultiError
+    // ... validation logic ...
+    return m
+}
+```
+
+Even if no errors occur and `m` remains nil, the returned error interface will not be nil. This is because the interface has a type (*MultiError), despite having a nil value.
+
+To correct this, we should explicitly return nil when there are no errors:
+
+```go
+func (c Customer) Validate() error {
+    var m *MultiError
+    // ... validation logic ...
+    if m != nil {
+        return m
+    }
+    return nil
+}
+```
+
+## Conclusion
+
+The distinction between nil receivers and nil values is a crucial concept in Go programming:
+
+1. Nil receivers: Go allows method calls on nil pointers, which can be counterintuitive but is a valid language feature.
+
+2. Nil values and interfaces: An interface is only nil when both its type and value are nil. This can lead to unexpected behavior when returning pointer types as interfaces.
+
+3. Error handling implications: Returning a nil pointer as an error interface will not result in a nil error, which can cause issues in error checking.
+
+4. Best practice: When working with interfaces, especially for error handling, it's crucial to return an explicit nil rather than a nil pointer to avoid unintended non-nil interfaces.
