@@ -1,6 +1,8 @@
 import { ArticleLayout } from "@/components/Article"
 import Image from "next/image"
+import AudioPlayer from "@/components/AudioPlayer"
 import GoContextImg from "./go-context.png"
+import GoContextAudio from "./go-context.wav"
 
 export const meta = {
     author: "Claudiu C. Bogdan",
@@ -12,6 +14,8 @@ export const meta = {
 }
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<AudioPlayer src={GoContextAudio} />
 
 Go's `context` package is a powerful tool for managing cancellation, deadlines, and request-scoped values across API boundaries and between processes. While essential for writing robust and efficient Go code, it can be challenging to use correctly. This comprehensive guide will walk you through everything you need to know about Go's context, from its basic concepts to advanced usage patterns.
 
